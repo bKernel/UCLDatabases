@@ -14,6 +14,9 @@
     <title>Title</title>
 </head>
 <body>
+
+<?php include("includes/navbar.html"); ?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4"></div>
@@ -58,10 +61,11 @@
                     </form>
                 </div>
                 <div class="panel-footer">
-                    Not Registered? <a href="/UCLDatabases/views/registration.html">Register here</a></div>
+                    Not Registered? <a href="/UCLDatabases/views/registration.php">Register here</a></div>
             </div>
         </div>
     </div>
     <div class="col-md-4"></div>
-</div></body>
+</div>
+</body>
 </html>

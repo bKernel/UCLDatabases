@@ -7,3 +7,21 @@
     padding-right: 8.333%;
     padding-left: 8.333%;
 }
+
+body {
+    padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+.container{
+    min-height: 100%;
+}
+
+.row{
+    margin-top: 15px;
+}
