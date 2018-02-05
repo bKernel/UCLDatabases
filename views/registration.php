@@ -14,8 +14,6 @@
     <title>Title</title>
 </head>
 
-<?php include("includes/navbar.html"); ?>
-
 <body>
 <div class="container">
     <div class="panel-heading">
