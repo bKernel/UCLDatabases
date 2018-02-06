@@ -17,7 +17,7 @@
 <body>
 <div class="container">
     <div class="panel-heading">
-        <span class="glyphicon glyphicon-lock"></span> <h1>Registration</h1></div>
+        <h1>Registration</h1></div>
     <div class="row main">
         <div class = "col-sm-4"></div>
             <div class = "col-sm-4">
@@ -25,11 +25,28 @@
                     <form class="" method="post" action="#">
 
                         <div class="form-group">
-                            <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                            <label for="username" class="cols-sm-2 control-label">Username</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="firstName" class="cols-sm-2 control-label">First Name</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="firstName" id="firstName"  placeholder="Enter your First Name"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="surname" class="cols-sm-2 control-label">Surname</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="surname" id="surname"  placeholder="Enter your Surname"/>
                                 </div>
                             </div>
                         </div>
@@ -38,18 +55,70 @@
                             <label for="email" class="cols-sm-2 control-label">Your Email</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                            <label for="phoneNo" class="cols-sm-2 control-label">Phone Number</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                                    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone Number"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address1" class="cols-sm-2 control-label">Address Line 1</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="address1" id="address1"  placeholder="Enter the first line of your address"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address2" class="cols-sm-2 control-label">Address Line 2</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="address2" id="address2"  placeholder="Enter the second line of your address"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postcode" class="cols-sm-2 control-label">Post Code</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="postcode" id="postcode"  placeholder="Enter the second line of your address"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city" class="cols-sm-2 control-label">Your City/Town</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="city" id="city"  placeholder="Enter the second line of your address"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country" class="cols-sm-2 control-label">Your Country</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="country" id="country"  placeholder="Enter the second line of your address"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DoB" class="cols-sm-2 control-label">Date of Birth</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="date" class="form-control" name="DoB" id="DoB"  placeholder="Enter the second line of your address"/>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +127,6 @@
                             <label for="password" class="cols-sm-2 control-label">Password</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                                     <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
                                 </div>
                             </div>
@@ -68,14 +136,13 @@
                             <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                                     <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group ">
-                            <a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
+                            <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
                         </div>
 
                     </form>
