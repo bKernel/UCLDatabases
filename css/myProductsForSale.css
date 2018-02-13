@@ -1,0 +1,29 @@
+body {
+    padding-top: 54px;
+    overflow: scroll;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+#listings{
+    padding-top: 35px;
+    width: 100%;
+    margin: 0;
+}
+
+#newProduct{
+    float: right;
+}
+
+.btn{
+    background: #ff9f1a;
+    padding: 1.2em 1.5em;
+    border: none;
+    text-transform: UPPERCASE;
+    font-weight: bold;
+    color: #fff;
+}
