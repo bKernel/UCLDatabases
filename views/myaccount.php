@@ -13,7 +13,7 @@
     <title>Title</title>
 </head>
 <body>
-<?php include("includes/navbar.html"); ?>
+<?php include("includes/navbar.php"); ?>
 
 
 

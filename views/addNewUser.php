@@ -84,23 +84,32 @@ function saveToDatabase($user)
     mysqli_close($connection);
 }
 
-if (isDataValid())
-{
-    $newUser = getUser();
-    printUser($newUser);
-    saveToDatabase($newUser);
-    echo "<h2>User added</h2>";
-    printUser($newUser);
-}
 ?>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/UCLDatabases/bootstrap-4-2/css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/UCLDatabases/bootstrap-4-2/css/bootstrap-grid.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/UCLDatabases/bootstrap-4-2/css/bootstrap-reboot.css" media="screen" />
+
+    <script type="text/javascript" src="/UCLDatabases/bootstrap-4-2/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="/UCLDatabases/bootstrap-4-2/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/UCLDatabases/css/directory.css" media="screen" />
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Create New User</title>
 </head>
 <body>
-<p>
-    <a href="registration.php">Return to form</a><br />
-</p>
+<div class="col-lg-12" align="center" style="padding-left: 25%; padding-right: 25%">
+    <?php
+    if(isDataValid()){
+    $newUser = getUser();
+    saveToDatabase($newUser);
+    echo "<h2>User added</h2>";
+    printUser($newUser);}
+    ?>
+    <a href="registration.php">Register another user</a><br>
+    <a href="login.php">Go to Login Page</a>
+</div>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['login'])) { //user logging in
+
+        require 'handleLogin.php';
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,45 +29,30 @@
         <div class="col-md-4 col-md-offset-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-lock"></span> <h1>Login</h1></div>
+                    <h1>Login</h1></div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" method="post" action="login.php">
                         <div class="form-group">
-                            <label for="Username" class="col-sm-3 control-label">
-                                Username</label>
+                            <label for="username" class="col-sm-3 control-label">Username</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-3 control-label">
-                                Password</label>
+                            <label for="password" class="col-sm-3 control-label">Password</label>
                             <div class="col-sm-12">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-12">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"/>
-                                        Remember me
-                                    </label>
-                                </div>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-12">
-                                <button type="submit" class="btn btn-success btn-sm">
-                                    Sign in</button>
-                                <button type="reset" class="btn btn-default btn-sm">
-                                    Reset</button>
+                                    <input type="submit" name="login" class="form submit" value="Login">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="panel-footer">
-                    Not Registered? <a href="/UCLDatabases/views/registration.php">Register here</a></div>
+                    Not Registered? <a href="registration.php">Register here</a></div>
             </div>
         </div>
     </div>

@@ -14,9 +14,7 @@
 </head>
 <body>
 
-<?php include("includes/navbar.html"); ?>
-
-
+<?php include("includes/navbar.php"); ?>
 
 <!-- Page Content -->
 <div class="container">
