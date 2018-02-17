@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +26,10 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">
-                                Email</label>
+                            <label for="Username" class="col-sm-3 control-label">
+                                Username</label>
                             <div class="col-sm-12">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                                <input type="text" class="form-control" id="username" placeholder="Username" required>
                             </div>
                         </div>
                         <div class="form-group">
