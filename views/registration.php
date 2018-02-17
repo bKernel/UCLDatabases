@@ -31,7 +31,7 @@
                         <label for="username" class="cols-sm-2 control-label">Username</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                                <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username" required/>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <label for="firstName" class="cols-sm-2 control-label">First Name</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="firstName" id="firstName"  placeholder="Enter your First Name"/>
+                                <input type="text" class="form-control" name="firstName" id="firstName"  placeholder="Enter your First Name" required/>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <label for="surname" class="cols-sm-2 control-label">Surname</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="surname" id="surname"  placeholder="Enter your Surname"/>
+                                <input type="text" class="form-control" name="surname" id="surname"  placeholder="Enter your Surname" required/>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                         <label for="email" class="cols-sm-2 control-label">Your Email</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" required/>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                         <label for="phoneNo" class="cols-sm-2 control-label">Phone Number</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone Number"/>
+                                <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone Number" required/>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <label for="address1" class="cols-sm-2 control-label">Address Line 1</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="address1" id="address1"  placeholder="Enter the first line of your address"/>
+                                <input type="text" class="form-control" name="address1" id="address1"  placeholder="Enter the first line of your address" required/>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                         <label for="address2" class="cols-sm-2 control-label">Address Line 2</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="address2" id="address2"  placeholder="Enter the second line of your address"/>
+                                <input type="text" class="form-control" name="address2" id="address2"  placeholder="Enter the second line of your address" required/>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                         <label for="postcode" class="cols-sm-2 control-label">Post Code</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="postcode" id="postcode"  placeholder="Enter the second line of your address"/>
+                                <input type="text" class="form-control" name="postcode" id="postcode"  placeholder="Enter the second line of your address" required/>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                         <label for="city" class="cols-sm-2 control-label">Your City/Town</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="city" id="city"  placeholder="Enter the second line of your address"/>
+                                <input type="text" class="form-control" name="city" id="city"  placeholder="Enter the second line of your address" required/>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                         <label for="country" class="cols-sm-2 control-label">Your Country</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="country" id="country"  placeholder="Enter the second line of your address"/>
+                                <input type="text" class="form-control" name="country" id="country"  placeholder="Enter the second line of your address" required/>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                         <label for="DoB" class="cols-sm-2 control-label">Date of Birth</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="date" class="form-control" name="DoB" id="DoB"  placeholder="Enter the second line of your address"/>
+                                <input type="date" class="form-control" name="DoB" id="DoB"  placeholder="Enter the second line of your address" required/>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                         <label for="password" class="cols-sm-2 control-label">Password</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                                <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" required/>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                         <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+                                <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password" required/>
                             </div>
                         </div>
                     </div>
