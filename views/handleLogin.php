@@ -19,6 +19,15 @@ else { // User exists
         $_SESSION['username'] = $user['username'];
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['surname'] = $user['surname'];
+        $_SESSION['address1'] = $user['address1'];
+        $_SESSION['address2'] = $user['address2'];
+        $_SESSION['postcode'] = $user['postcode'];
+        $_SESSION['city'] = $user['city'];
+        $_SESSION['country'] = $user['country'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['phone'] = $user['phone'];
+        $_SESSION['DoB'] = $user['DoB'];
+        $_SESSION['pw'] = $user['pw'];
         $_SESSION['active'] = $user['active'];
 
         // This is how we'll know the user is logged in
