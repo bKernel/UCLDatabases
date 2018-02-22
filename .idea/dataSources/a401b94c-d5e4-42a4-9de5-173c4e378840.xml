@@ -323,7 +323,7 @@
     <table id="143" parent="5" name="table_lock_waits_summary_by_table"/>
     <table id="144" parent="5" name="threads"/>
     <table id="145" parent="5" name="users"/>
-    <column id="146" parent="6" name="user_ID">
+    <column id="146" parent="6" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
@@ -400,11 +400,11 @@
       <NotNull>1</NotNull>
     </column>
     <index id="161" parent="6" name="user_ID">
-      <ColNames>user_ID</ColNames>
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="162" parent="6" name="user_ID">
-      <ColNames>user_ID</ColNames>
+      <ColNames>id</ColNames>
       <UnderlyingIndexName>user_ID</UnderlyingIndexName>
     </key>
     <column id="163" parent="7" name="CHARACTER_SET_NAME">

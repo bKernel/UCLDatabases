@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <label type="text" id="DoB" ><?php echo $_SESSION['DoB']?></label>
+                    <label type="date" id="DoB" ><?php echo $_SESSION['DoB']?></label>
                 </div>
             </div>
 
