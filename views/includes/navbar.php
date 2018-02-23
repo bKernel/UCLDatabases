@@ -29,22 +29,47 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/UCLDatabases/views/directory.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/UCLDatabases/views/myaccount.php">My Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/UCLDatabases/views/myProductsForSale.php">My Products For Sale</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/UCLDatabases/views/logout.php">Logout</a>
-                </li>
-            </ul>
-        </div>
+
+        <?php if($_SESSION['userType'] === 'seller'){?>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/sellerHome.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/myaccount.php">My Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/myProductsForSale.php">My Products For Sale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/logout.php">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        <?php }elseif ($_SESSION['userType'] === 'buyer'){ ?>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/buyerHome.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/myaccount.php">My Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/myOrders.php">My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/logout.php">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        <?php } ?>
+
     </div>
 </nav>
 </body>

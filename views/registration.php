@@ -127,6 +127,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="select" class="cols-sm-2 control-label">User Type</label>
+                        <div class="cols-sm-10">
+                            <select name="userType">
+                                    <option value="buyer">Buyer</option>
+                                    <option value="seller">Seller</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="password" class="cols-sm-2 control-label">Password</label>
                         <div class="cols-sm-10">
                             <div class="input-group">

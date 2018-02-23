@@ -54,6 +54,7 @@ function getUser()
     $user['email'] = $_POST['email'];
     $user['phone'] = $_POST['phone'];
     $user['DoB'] = $_POST['DoB'];
+    $user['userType'] = $_POST['userType'];
     $user['password'] = $_POST['password'];
 
     return $user;
@@ -72,14 +73,15 @@ function printUser($user)
     echo "<p>Email: ${user['email']}</p>";
     echo "<p>Phone: ${user['phone']}</p>";
     echo "<p>Date of Birth: ${user['DoB']}</p>";
+    echo "<p>User Type: ${user['userType']}</p>";
     echo "<p>Password: ${user['password']}</p>";
 }
 
 function saveToDatabase($user)
 {
     $connection = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
-    $query = "INSERT INTO AuctionManagement.User (username, firstName, surname, address1, address2, postcode, city, country, email, phone, DoB, pw)".
-        "VALUES ('${user['username']}','${user['firstName']}','${user['surname']}','${user['address1']}','${user['address2']}','${user['postcode']}','${user['city']}','${user['country']}','${user['email']}','${user['phone']}','${user['DoB']}','${user['password']}')";
+    $query = "INSERT INTO AuctionManagement.User (username, firstName, surname, address1, address2, postcode, city, country, email, phone, DoB, userType, pw)".
+        "VALUES ('${user['username']}','${user['firstName']}','${user['surname']}','${user['address1']}','${user['address2']}','${user['postcode']}','${user['city']}','${user['country']}','${user['email']}','${user['phone']}','${user['DoB']}','${user['userType']}','${user['password']}')";
     $result = mysqli_query($connection, $query) or die('Error making saveToDatabase query');
     mysqli_close($connection);
 }

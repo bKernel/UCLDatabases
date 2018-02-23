@@ -9,9 +9,8 @@ $result = $mysqli->query("SELECT * FROM User WHERE username='$username'");
 
 if ( $result->num_rows == 0 ){ // User doesn't exist
     $_SESSION['message'] = "User with that email doesn't exist!";
-    header("location: directory.php");
-}
-else { // User exists
+    header("location: buyerHome.php");
+} else { // User exists
     $user = $result->fetch_assoc();
 
     if ($_POST['password']===$user['pw']){
@@ -28,18 +27,22 @@ else { // User exists
         $_SESSION['email'] = $user['email'];
         $_SESSION['phone'] = $user['phone'];
         $_SESSION['DoB'] = $user['DoB'];
+        $_SESSION['userType'] = $user['userType'];
         $_SESSION['pw'] = $user['pw'];
         $_SESSION['active'] = $user['active'];
 
         // This is how we'll know the user is logged in
         $_SESSION['logged_in'] = true;
 
-        header("location: directory.php");
-    }
-    else {
+        if($_SESSION['userType'] === 'buyer'){
+            require 'buyerHome.php';
+        } elseif ($_SESSION['userType'] === 'seller'){
+            require 'sellerHome.php';
+        } elseif ($_SESSION['userType'] === 'admin'){
+            require 'adminHome.php';
+        }
+    } else {
         $_SESSION['message'] = "You have entered wrong password, try again!";
-        echo $_SESSION['message'];
-//        header("location: error.php");
     }
 }
 ?>

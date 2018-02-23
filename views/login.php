@@ -1,6 +1,5 @@
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['login'])) { //user logging in
-
         require 'handleLogin.php';
     }
 }
@@ -51,8 +50,13 @@
                         </div>
                     </form>
                 </div>
+                <div>
+                    <?php echo $_SESSION['message'] ?>
+                </div>
                 <div class="panel-footer">
-                    Not Registered? <a href="registration.php">Register here</a></div>
+                    Not Registered? <a href="registration.php">Register here</a>
+                </div>
+
             </div>
         </div>
     </div>

@@ -137,6 +137,16 @@
 
             <div class="row">
                 <div class="col-sm-6">
+                    <label for="userType" class="cols-sm-2 control-label">User Type</label>
+                </div>
+
+                <div class="col-sm-6">
+                    <label type="text" id="userType" ><?php echo $_SESSION['userType']?></label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
                     <label for="password" class="cols-sm-2 control-label">Password:</label>
                 </div>
 
