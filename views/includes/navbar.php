@@ -44,6 +44,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
                         <a class="nav-link" href="/UCLDatabases/views/myProductsForSale.php">My Products For Sale</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/UCLDatabases/views/enlist.php">Create new Auction</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/UCLDatabases/views/logout.php">Logout</a>
                     </li>
                 </ul>

@@ -1,6 +1,5 @@
 <?php include 'database.php'; ?>
-<?php
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
