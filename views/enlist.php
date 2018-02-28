@@ -22,7 +22,7 @@
         <div class = "col-sm-4"></div>
         <div class = "col-sm-4">
             <div class="main-login main-center">
-                <form class="" method="post" action="addNewAuction.php">
+                <form class="" method="post" action="addNewAuction.php" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="itemName" class="cols-sm-2 control-label">Item Name</label>
@@ -114,7 +114,16 @@
                         <label for="itemPicture1" class="cols-sm-2 control-label">Item Picture</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="file" class="form-control" name="itemPicture1" id="itemPicture1" required/>
+                                <input type="file" accept=".png, .jpeg, .jpg" class="form-control" name="itemPicture1" id="itemPicture1" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemPicture2" class="cols-sm-2 control-label">Item Picture</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="file" accept=".png, .jpeg, .jpg" class="form-control" name="itemPicture2" id="itemPicture2" required/>
                             </div>
                         </div>
                     </div>

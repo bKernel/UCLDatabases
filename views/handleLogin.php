@@ -9,7 +9,7 @@ $result = $mysqli->query("SELECT * FROM User WHERE username='$username'");
 
 if ( $result->num_rows == 0 ){ // User doesn't exist
     $_SESSION['message'] = "User with that email doesn't exist!";
-    header("location: buyerHome.php");
+    header("location: login.php");
 } else { // User exists
     $user = $result->fetch_assoc();
 
@@ -37,7 +37,7 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
         if($_SESSION['userType'] === 'buyer'){
             require 'buyerHome.php';
         } elseif ($_SESSION['userType'] === 'seller'){
-            require 'sellerHome.php';
+            require 'myProductsForSale.php';
         } elseif ($_SESSION['userType'] === 'admin'){
             require 'adminHome.php';
         }

@@ -35,9 +35,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/sellerHome.php">Home</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/UCLDatabases/views/myaccount.php">My Account</a>
                     </li>
                     <li class="nav-item">

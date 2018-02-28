@@ -25,6 +25,16 @@
 
             <div class="row">
                 <div class="col-sm-6">
+                    <label for="id" class="cols-sm-2 control-label">ID:</label>
+                </div>
+
+                <div class="col-sm-6">
+                    <label type="text" id="id" ><?php echo $_SESSION['id']?></label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
                     <label for="username" class="cols-sm-2 control-label">Username:</label>
                 </div>
 

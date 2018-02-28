@@ -2,6 +2,9 @@
 <?php
 
 require 'database.php';
+require 'handleLogin.php';
+
+session_start();
 
 function isDataValid()
 {
@@ -22,8 +25,6 @@ function isDataValid()
         $errorMessage = 'You must enter your Item Condition';
     else if (!isset($_POST['itemCategory']) or trim($_POST['itemCategory']) == '')
         $errorMessage = 'You must enter your Item Category';
-    else if (!isset($_POST['itemPicture1']) or trim($_POST['itemPicture1']) == '')
-        $errorMessage = 'You must enter an Image';
     if ($errorMessage !== null)
     {
         echo <<<EOM
@@ -48,50 +49,152 @@ function getItem()
     $item['itemCondition'] = $_POST['itemCondition'];
     $item['itemCategory'] = $_POST['itemCategory'];
     $item['itemPicture1'] = $_POST['itemPicture1'];
+    $item['itemPicture2'] = $_POST['itemPicture2'];
 
-    return $item['itemName'];
+    return $item;
 }
 
 function printItem($item)
 {
 
-    echo $item['id'];
-    echo "<p>";
-    echo $item['itemName'];
-    echo "<p>";
-    echo $item['endDate'];
-    echo "<p>";
-    echo $item['endTime'];
-    echo "<p>";
-    echo $item['reservePrice'];
-    echo "<p>";
-    echo $item['startingPrice'];
-    echo "<p>";
-    echo "<p>";
-    echo $item['currentPrice'];
-    echo "<p>";
-    echo $item['itemDescription'];
-    echo "<p>";
-    echo $item['itemCondition'];
-    echo "<p>";
-    echo $item['itemCategory'];
-    echo "<p>";
-    echo $item['itemPicture1'];
+    echo "<p>ID: ${item['id']}</p>";
+    echo "<p>Item Name: ${item['itemName']}</p>";
+    echo "<p>End Date: ${item['endDate']}</p>";
+    echo "<p>End Time: ${item['endTime']}</p>";
+    echo "<p>Reserve Price: ${item['reservePrice']}</p>";
+    echo "<p>Starting Price: ${item['startingPrice']}</p>";
+    echo "<p>Current Price: ${item['currentPrice']}</p>";
+    echo "<p>Description: ${item['itemDescription']}</p>";
+    echo "<p>Condition: ${item['itemCondition']}</p>";
+    echo "<p>Category: ${item['itemCategory']}</p>";
 }
 
 function saveToDatabase($item)
 {
     $connection = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
-    $query = "INSERT INTO AuctionManagement.Auction (id, itemName, endDate, endTime, reservePrice, startingPrice, currentPrice, itemDescription, itemCondition, itemCategory, itemPicture1)".
-        "VALUES ('${$item['id']}','${$item['itemName']}','${$item['endDate']}','${$item['endTime']}','${$item['reservePrice']}','${$item['startingPrice']}','${$item['currentPrice']}','${$item['itemDescription']}','${$item['itemCondition']}','${$item['itemCategory']}','${$item['itemPicture1']}')";
+    $query = "INSERT INTO AuctionManagement.Auction (id, itemName, endDate, endTime, reservePrice, startingPrice, currentPrice, itemDescription, itemCondition, itemCategory)".
+        "VALUES ('${item['id']}','${item['itemName']}','${item['endDate']}','${item['endTime']}','${item['reservePrice']}','${item['startingPrice']}','${item['currentPrice']}','${item['itemDescription']}','${item['itemCondition']}','${item['itemCategory']}')";
     $result = mysqli_query($connection, $query) or die('Error making saveToDatabase query');
     mysqli_close($connection);
 }
 
+function saveImage1()
+{
+    mkdir("resources/{$_SESSION['id']}/");
+    mkdir("resources/{$_SESSION['id']}/{$_POST['itemName']}");
+    $target_dir = "resources/{$_SESSION['id']}/{$_POST['itemName']}";
+    $target_file = $target_dir . basename($_FILES["itemPicture1"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["itemPicture1"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+    }
+
+    // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+    // Check file size
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+    // Allow certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif") {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+    // Allow certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif") {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+    // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["itemPicture1"]["tmp_name"], $target_file)) {
+                rename("$target_file", "resources/{$_SESSION['id']}/{$_POST['itemName']}/image1.png");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+}
+
+function saveImage2()
+{
+    $target_dir = "resources/{$_SESSION['id']}/{$_POST['itemName']}";
+    $target_file = $target_dir . basename($_FILES["itemPicture2"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["itemPicture2"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+    }
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Check file size
+    if ($_FILES["fileToUpload"]["size"] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif") {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif") {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["itemPicture2"]["tmp_name"], $target_file)) {
+            rename("$target_file", "resources/{$_SESSION['id']}/{$_POST['itemName']}/image2.png");
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+}
+
 if(isDataValid()){
     $newItem = getItem();
-    printItem($newItem);
+    saveImage1();
+    saveImage2();
     saveToDatabase($newItem);
-//    require 'sellerHome.php';
+    require 'myProductsForSale.php';
 }
 ?>
