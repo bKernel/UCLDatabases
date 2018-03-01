@@ -16,20 +16,31 @@
     <title>Title</title>
 </head>
 <body>
-<?php include("includes/navbar.php"); ?>
+<?php
+include("includes/navbar.php");
+?>
+
+
 
 <div class="container">
     <div class="card">
         <div class="container-fluid">
             <div class="wrapper row">
                 <div class="preview col-md-6">
-                    <img src="/UCLDatabases/Resources/ipod-touch-product-initial-2015_GEO_GB.jpeg"/>
+                    <img src="<?php
+                    session_start();
+                    echo $_SESSION['imagesrc'];
+                    ?>"/>
                 </div>
                 <div class="details col-md-6">
-                    <h3 class="product-title">Product Title Here</h3>
-
-                    <p class="product-description">Product Description here</p>
-                    <h4 class="price">Current Bid: <span>Price Here</span></h4>
+                    <?php
+                    session_start();
+                    echo "<h3 class='product-title'>{$_SESSION['itemName']}</h3>";
+                    echo "<h4>Item Category: {$_SESSION['itemCategory']}</h4>";
+                    echo "<h4>Item Condition: {$_SESSION['itemCondition']}</h4>";
+                    echo "<h4 class='price'>Current Bid: <span>£{$_SESSION['currentPrice']}</span></h4>";
+                    ?>
+<!--                    <h3 class="product-title">--><?php //session_start(); echo $_SESSION['itemName']?><!--</h3>-->
 
                     <div id="bid-column" class="col-lg-12">
                         <div class="form-group">
@@ -51,11 +62,11 @@
             <br>
             <br>
             <hr>
-            <h3> More Details</h3>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare, orci in malesuada placerat, ante purus accumsan velit, vel blandit sapien eros facilisis neque. Phasellus molestie tincidunt velit. Aenean non lorem interdum, maximus arcu commodo, ornare elit. Morbi congue sit amet odio vel finibus. Quisque ex nibh, dignissim a volutpat laoreet, viverra nec mauris. Sed lacus est, porta in nulla efficitur, varius luctus sem. Proin sit amet nunc suscipit, bibendum elit at, sollicitudin magna. Nulla eget felis leo. Nam vel dictum dolor, at volutpat mauris. Vestibulum venenatis cursus lorem, ultrices aliquet mauris mollis eu. Nullam porttitor sit amet metus sit amet finibus. Mauris et ultrices purus, id aliquam sapien.
-            <br>
-            <br>
-            Pellentesque tincidunt elit ut laoreet molestie. Pellentesque sem risus, luctus vel ipsum a, vehicula faucibus ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris non dictum quam. Nunc ullamcorper purus sed quam vestibulum cursus. Donec egestas ut nibh condimentum dictum. Sed consectetur condimentum augue ut posuere. Nulla iaculis mattis pellentesque. Proin rutrum eu nisl et sodales. Nunc tincidunt libero vel finibus suscipit. Quisque vitae sagittis orci, ac mattis lorem. Aenean pellentesque nisl nibh, eu dapibus felis blandit non. Mauris iaculis, neque nec mattis congue, diam tortor scelerisque mauris, ac laoreet justo nulla nec purus.
+            <?php
+            session_start();
+            echo "<h3>Item Description</h3>";
+            echo "{$_SESSION['itemDescription']}";
+            ?>
         </div>
     </div>
 </div>
