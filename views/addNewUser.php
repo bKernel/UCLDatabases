@@ -93,6 +93,7 @@ function saveToDatabase($user)
 if(isDataValid()){
     $newUser = getUser();
     saveToDatabase($newUser);
-    require 'login.php';
+   // require 'login.php';
+    header('Location:login.php');
 }
 ?>

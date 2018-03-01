@@ -35,11 +35,14 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
         $_SESSION['logged_in'] = true;
 
         if($_SESSION['userType'] === 'buyer'){
-            require 'buyerHome.php';
+            //require 'buyerHome.php';
+            header('Location:buyerHome.php');
         } elseif ($_SESSION['userType'] === 'seller'){
-            require 'myProductsForSale.php';
+            //require 'myProductsForSale.php';
+            header('Location:myProductsForSale.php');
         } elseif ($_SESSION['userType'] === 'admin'){
-            require 'adminHome.php';
+            //require 'adminHome.php';
+            header('Location:adminHome.php');
         }
     } else {
         $_SESSION['message'] = "You have entered wrong password, try again!";

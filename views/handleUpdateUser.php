@@ -99,5 +99,6 @@ if($update['password'] === $update['confirm']) {
     saveToDatabase($update);
     setNewSession($update);
     printUser($update);
-    require 'myaccount.php';
+   // require 'myaccount.php';
+    header('Location:myaccount.php');
 }
