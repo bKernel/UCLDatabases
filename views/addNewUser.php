@@ -79,12 +79,16 @@ function printUser($user)
 
 function saveToDatabase($user)
 {
-    $connection = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
-    $query = "INSERT INTO AuctionManagement.User (username, firstName, surname, address1, address2, postcode, city, country, email, phone, DoB, userType, pw)".
+    //$mysqli = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
+    $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
+    $query = "INSERT INTO auctiondb.User (username, firstName, surname, address1, address2, postcode, city, country, email, phone, DoB, userType, pw)".
         "VALUES ('${user['username']}','${user['firstName']}','${user['surname']}','${user['address1']}','${user['address2']}','${user['postcode']}','${user['city']}','${user['country']}','${user['email']}','${user['phone']}','${user['DoB']}','${user['userType']}','${user['password']}')";
     $result = mysqli_query($connection, $query) or die('Error making saveToDatabase query');
     mysqli_close($connection);
 }
+
+//create table User (username TEXT, firstName TEXT, surname TEXT, address1 TEXT, address2 TEXT, postcode TEXT, city TEXT, country TEXT, email TEXT, phone TEXT, DoB TEXT, userType TEXT, pw TEXT);
+
 
 if(isDataValid()){
     $newUser = getUser();
