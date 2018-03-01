@@ -2,8 +2,8 @@
 include("database.php");
 session_start();
 
-$mysqli = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
-
+//$mysqli = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
+$mysqli = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
 $username = $mysqli->escape_string($_POST['username']);
 $result = $mysqli->query("SELECT * FROM User WHERE username='$username'");
 
