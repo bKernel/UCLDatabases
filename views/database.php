@@ -1,16 +1,16 @@
 <?php
-$connectstr_dbname = 'AuctionManagement';
+//$connectstr_dbname = 'AuctionManagement';
 
-$connectstr_dbhost = 'localhost';
+//$connectstr_dbhost = 'localhost';
 
-$connectstr_dbusername = 'root';
+//$connectstr_dbusername = 'root';
 
-$connectstr_dbpassword = 'root';
+//$connectstr_dbpassword = 'root';
 
-//$connectstr_dbname = 'auctiondb';
-//$connectstr_dbhost = 'auctionmanagement34.mysql.database.azure.com';
-//$connectstr_dbusername = 'auction34@auctionmanagement34';
-//$connectstr_dbpassword = 'JackSparrow34';
+$connectstr_dbname = 'auctiondb';
+$connectstr_dbhost = 'auctionmanagement34.mysql.database.azure.com';
+$connectstr_dbusername = 'auction34@auctionmanagement34';
+$connectstr_dbpassword = 'JackSparrow34';
 $link = new mysqli($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 if ($link->connect_error) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;

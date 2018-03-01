@@ -2,8 +2,8 @@
 include("database.php");
 session_start();
 
-$mysqli = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
-
+//$mysqli = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
+$mysqli = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
 $username = $mysqli->escape_string($_POST['username']);
 $result = $mysqli->query("SELECT * FROM User WHERE username='$username'");
 
@@ -35,14 +35,15 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
         $_SESSION['logged_in'] = true;
 
         if($_SESSION['userType'] === 'buyer'){
-            header("location: buyerHome.php");
-//            require 'buyerHome.php';
+
+            //require 'buyerHome.php';
+            header('Location:buyerHome.php');
         } elseif ($_SESSION['userType'] === 'seller'){
-            header("location: myProductsForSale.php");
-//            require 'myProductsForSale.php';
+            //require 'myProductsForSale.php';
+            header('Location:myProductsForSale.php');
         } elseif ($_SESSION['userType'] === 'admin'){
-            header("location: adminHome.php");
-//            require 'adminHome.php';
+            //require 'adminHome.php';
+            header('Location:adminHome.php');
         }
     } else {
         $_SESSION['message'] = "You have entered wrong password, try again!";
