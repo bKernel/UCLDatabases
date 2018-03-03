@@ -25,39 +25,14 @@
 
             <h1 class="my-4">Team34</h1>
             <div class="list-group">
-                <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="Fashion">
-                <button class="list-group-item">Fashion</button>
-                </form>
-                <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="Home & Garden">
-                    <button class="list-group-item">Home & Garden</button>
-                </form>
-                <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="Electronics">
-                    <button class="list-group-item">Electronics</button>
-                </form>
-                <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="Sports & Hobbies">
-                    <button class="list-group-item">Sports & Hobbies</button>
-                </form>
-                <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="Art">
-                    <button class="list-group-item">Art</button>
-                </form>
-                <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="Health & Beauty">
-                    <button class="list-group-item">Health & Beauty</button>
-                </form>
-                <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="Motors">
-                    <button class="list-group-item">Motors</button>
-                </form>
-                <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="Other">
-                    <button class="list-group-item">Other</button>
-                </form>
-
+                <a href="#" class="list-group-item">Fashion</a>
+                <a href="#" class="list-group-item">Home & Garden</a>
+                <a href="#" class="list-group-item">Electronics</a>
+                <a href="#" class="list-group-item">Sports & Hobbies</a>
+                <a href="#" class="list-group-item">Art</a>
+                <a href="#" class="list-group-item">Health & Beauty</a>
+                <a href="#" class="list-group-item">Motors</a>
+                <a href="#" class="list-group-item">Other</a>
             </div>
 
         </div>
@@ -67,8 +42,10 @@
 
 
                 <?php
+
                 $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
-                $query = "SELECT * FROM Auction";
+                $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}'";
+
                 $result = mysqli_query($connection, $query) or die('Error making Database query');
                 echo "<div id=\"listings\" class=\"row\">";
                 while($row = mysqli_fetch_array($result)){
