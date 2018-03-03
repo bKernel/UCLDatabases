@@ -27,35 +27,35 @@
             <div class="list-group">
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Fashion">
-                <button class="list-group-item">Fashion</button>
+                <button class="btn btn-link" >Fashion</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Home & Garden">
-                    <button class="list-group-item">Home & Garden</button>
+                    <button class="btn btn-link">Home & Garden</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Electronics">
-                    <button class="list-group-item">Electronics</button>
+                    <button class="btn btn-link">Electronics</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Sports & Hobbies">
-                    <button class="list-group-item">Sports & Hobbies</button>
+                    <button class="btn btn-link">Sports & Hobbies</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Art">
-                    <button class="list-group-item">Art</button>
+                    <button class="btn btn-link">Art</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Health & Beauty">
-                    <button class="list-group-item">Health & Beauty</button>
+                    <button class="btn btn-link">Health & Beauty</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Motors">
-                    <button class="list-group-item">Motors</button>
+                    <button class="btn btn-link">Motors</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Other">
-                    <button class="list-group-item">Other</button>
+                    <button class="btn btn-link">Other</button>
                 </form>
 
             </div>
