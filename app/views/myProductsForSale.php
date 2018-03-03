@@ -1,4 +1,4 @@
-<?php include("includes/navbar.php"); ?>
+<?php include("../includes/navbar.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@
     <title>Title</title>
 </head>
 <body>
-<?php include("includes/navbar.php"); ?>
+
 
 
 
@@ -35,7 +35,7 @@
             <div class="container col-xs-12" style="padding: 0">
 
                 <?php
-                $connection = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
+                $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
                 $query = "SELECT itemid, itemName, itemDescription, itemCondition, itemCategory, currentPrice FROM Auction WHERE id = {$_SESSION['id']}";
                 $result = mysqli_query($connection, $query) or die('Error making Database query');
                 echo "<div id=\"listings\" class=\"row\">";
@@ -56,14 +56,14 @@
                                         <h5>£{$row['currentPrice']}</h5>
                                         <h6>{$row['itemCategory']}</h6>
                                         <p class=\"card-text\">{$row['itemDescription']}</p>
-                                        <form action='/UCLDatabases/app/handlers/selectItem.php' method='post'>
-                                            <input type='text' name='imagesrc' value='/UCLDatabases/app/resources/{$_SESSION['id']}/{$row['itemName']}/image1.png'>                                        
-                                            <input type='text' name='itemid' value='{$row['itemid']}'>
-                                            <input type='text' name='itemName' value='{$row['itemName']}'>
-                                            <input type='text' name='itemDescription' value='{$row['itemDescription']}'>
-                                            <input type='text' name='itemCondition' value='{$row['itemCondition']}'>
-                                            <input type='text' name='itemCategory' value='{$row['itemCategory']}'>    
-                                            <input type='text' name='currentPrice' value='{$row['currentPrice']}'>                                      
+                                        <form action='../handlers/selectItem.php' method='post'>
+                                            <input type='hidden' name='imagesrc' value='/UCLDatabases/app/resources/{$_SESSION['id']}/{$row['itemName']}/image1.png'>                                        
+                                            <input type='hidden' name='itemid' value='{$row['itemid']}'>
+                                            <input type='hidden' name='itemName' value='{$row['itemName']}'>
+                                            <input type='hidden' name='itemDescription' value='{$row['itemDescription']}'>
+                                            <input type='hidden' name='itemCondition' value='{$row['itemCondition']}'>
+                                            <input type='hidden' name='itemCategory' value='{$row['itemCategory']}'>    
+                                            <input type='hidden' name='currentPrice' value='{$row['currentPrice']}'>                                      
                                             <input type='submit'></button>
                                         </form>
                                     </div>

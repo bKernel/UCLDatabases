@@ -1,6 +1,7 @@
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['login'])) { //user logging in
-        require '/app/handlers/handleLogin.php';
+
+        require '../handlers/handleLogin.php';
     }
 }
 ?>

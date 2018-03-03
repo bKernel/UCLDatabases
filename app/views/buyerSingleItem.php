@@ -24,21 +24,28 @@
     <div class="card">
         <div class="container-fluid">
             <div class="wrapper row">
-                <div class="preview col-md-6">
-                    <img src="<?php
-                    session_start();
-                    echo $_SESSION['imagesrc'];
-                    ?>"/>
-                </div>
-                <div class="details col-md-6">
+
+
+
+
                     <?php
-                    session_start();
-                    echo "<h3 class='product-title'>{$_SESSION['itemName']}</h3>";
-                    echo "<h4>Item Category: {$_SESSION['itemCategory']}</h4>";
-                    echo "<h4>Item Condition: {$_SESSION['itemCondition']}</h4>";
-                    echo "<h4 class='price'>Current Bid: <span>£{$_SESSION['currentPrice']}</span></h4>";
+                    $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
+                    $query = "SELECT * FROM Auction WHERE itemid = '{$_SESSION['selectedItemBuyer']}'";
+
+                    $result = mysqli_query($connection, $query) or die('Error making Database query');
+                    $row = mysqli_fetch_array($result);
+
+                    echo "
+                    
+                    <div class=\"details col-md-6\">
+                    <h3 class='product-title'>{$row['itemName']}</h3>
+                    <img src=\"/UCLDatabases/app/resources/{$row['id']}/{$row['itemName']}/image1.png\"/>
+                    <h4>Item Category: {$row['itemCategory']}</h4>
+                    <h4>Item Condition: {$row['itemCondition']}</h4>
+                    <h4 class='price'>Current Bid: <span>£{$row['currentPrice']}</span></h4>
+                    
+                    ";
                     ?>
-<!--                    <h3 class="product-title">--><?php //session_start(); echo $_SESSION['itemName']?><!--</h3>-->
 
                     <div id="bid-column" class="col-lg-12">
                         <div class="form-group">
@@ -50,22 +57,24 @@
                             <div id="btn-column" class="col-sm-5">
                                 <button class="add-to-cart btn btn-default" type="button">Make Bid</button>
                             </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <br>
+                            <br>
+                            <hr>
+                            <?php
+
+                            echo "<h3>Item Description</h3>";
+                            echo "{$row['itemDescription']}";
+                            ?>
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <br>
-            <br>
-            <hr>
-            <?php
-            session_start();
-            echo "<h3>Item Description</h3>";
-            echo "{$_SESSION['itemDescription']}";
-            ?>
-        </div>
+
     </div>
 </div>
 

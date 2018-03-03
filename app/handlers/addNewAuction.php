@@ -71,8 +71,8 @@ function printItem($item)
 
 function saveToDatabase($item)
 {
-    $connection = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
-    $query = "INSERT INTO AuctionManagement.Auction (id, itemName, endDate, endTime, reservePrice, startingPrice, currentPrice, itemDescription, itemCondition, itemCategory)".
+    $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
+    $query = "INSERT INTO auctiondb.Auction (id, itemName, endDate, endTime, reservePrice, startingPrice, currentPrice, itemDescription, itemCondition, itemCategory)".
         "VALUES ('${item['id']}','${item['itemName']}','${item['endDate']}','${item['endTime']}','${item['reservePrice']}','${item['startingPrice']}','${item['currentPrice']}','${item['itemDescription']}','${item['itemCondition']}','${item['itemCategory']}')";
     $result = mysqli_query($connection, $query) or die('Error making saveToDatabase query');
     mysqli_close($connection);
@@ -80,9 +80,9 @@ function saveToDatabase($item)
 
 function saveImage1()
 {
-    mkdir("resources/{$_SESSION['id']}/");
-    mkdir("resources/{$_SESSION['id']}/{$_POST['itemName']}");
-    $target_dir = "resources/{$_SESSION['id']}/{$_POST['itemName']}";
+    mkdir("../resources/{$_SESSION['id']}/");
+    mkdir("../resources/{$_SESSION['id']}/{$_POST['itemName']}");
+    $target_dir = "../resources/{$_SESSION['id']}/{$_POST['itemName']}";
     $target_file = $target_dir . basename($_FILES["itemPicture1"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -128,7 +128,7 @@ function saveImage1()
     // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["itemPicture1"]["tmp_name"], $target_file)) {
-                rename("$target_file", "resources/{$_SESSION['id']}/{$_POST['itemName']}/image1.png");
+                rename("$target_file", "../resources/{$_SESSION['id']}/{$_POST['itemName']}/image1.png");
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -137,7 +137,7 @@ function saveImage1()
 
 function saveImage2()
 {
-    $target_dir = "resources/{$_SESSION['id']}/{$_POST['itemName']}";
+    $target_dir = "../resources/{$_SESSION['id']}/{$_POST['itemName']}";
     $target_file = $target_dir . basename($_FILES["itemPicture2"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -183,7 +183,7 @@ function saveImage2()
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["itemPicture2"]["tmp_name"], $target_file)) {
-            rename("$target_file", "resources/{$_SESSION['id']}/{$_POST['itemName']}/image2.png");
+            rename("$target_file", "../resources/{$_SESSION['id']}/{$_POST['itemName']}/image2.png");
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
@@ -195,6 +195,7 @@ if(isDataValid()){
     saveImage1();
     saveImage2();
     saveToDatabase($newItem);
-    require 'myProductsForSale.php';
+    require '../views/myProductsForSale.php';
+   // header('Location:myProductsForSale.php');
 }
 ?>

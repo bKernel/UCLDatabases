@@ -1,4 +1,4 @@
-<?php include("includes/navbar.php"); ?>
+<?php include("../includes/navbar.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +24,7 @@
             <h1 align="left">Edit Your Account Details</h1>
         </div>
 
-        <form action="handleUpdateUser.php" method="post">
+        <form action="../handlers/handleUpdateUser.php" method="post">
             <div class="row">
                 <div class="col-sm-6">
                     <label for="username" class="cols-sm-2 control-label">Username:</label>

@@ -8,4 +8,4 @@ $_SESSION['itemCondition'] = $_POST['itemCondition'];
 $_SESSION['itemCategory'] = $_POST['itemCategory'];
 $_SESSION['currentPrice'] = $_POST['currentPrice'];
 
-header("location: sellerSingleItem.php");
+header("location: ../views/sellerSingleItem.php");
