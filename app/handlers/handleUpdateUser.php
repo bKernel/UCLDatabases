@@ -70,7 +70,7 @@ function saveToDatabase($user)
     $phone=$user['phone'];
     $pw=$user['pw'];
 
-    $connection = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
+    $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
     $session = $_SESSION['id'];
     $sql = "UPDATE User
 
@@ -98,7 +98,7 @@ $update = getUser();
 if($update['password'] === $update['confirm']) {
     saveToDatabase($update);
     setNewSession($update);
-    printUser($update);
-   // require 'myaccount.php';
-    header('Location:myaccount.php');
+  //  printUser($update);
+   require '../views/myaccount.php';
+  // header('Location:../views/myaccount.php');
 }
