@@ -56,7 +56,7 @@
                                         <h5>£{$row['currentPrice']}</h5>
                                         <h6>{$row['itemCategory']}</h6>
                                         <p class=\"card-text\">{$row['itemDescription']}</p>
-                                        <form action='selectItem.php' method='post'>
+                                        <form action='/UCLDatabases/app/handlers/selectItem.php' method='post'>
                                             <input type='text' name='imagesrc' value='/UCLDatabases/app/resources/{$_SESSION['id']}/{$row['itemName']}/image1.png'>                                        
                                             <input type='text' name='itemid' value='{$row['itemid']}'>
                                             <input type='text' name='itemName' value='{$row['itemName']}'>
