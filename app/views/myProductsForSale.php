@@ -35,7 +35,7 @@
             <div class="container col-xs-12" style="padding: 0">
 
                 <?php
-                $connection = mysqli_connect('localhost','root','root','AuctionManagement') or die('Error connecting to MySQL server.');
+                $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
                 $query = "SELECT itemid, itemName, itemDescription, itemCondition, itemCategory, currentPrice FROM Auction WHERE id = {$_SESSION['id']}";
                 $result = mysqli_query($connection, $query) or die('Error making Database query');
                 echo "<div id=\"listings\" class=\"row\">";
