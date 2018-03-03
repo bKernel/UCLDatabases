@@ -35,16 +35,16 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/myaccount.php">My Account</a>
+                        <a class="nav-link" href="../views/myaccount.php">My Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/myProductsForSale.php">My Products For Sale</a>
+                        <a class="nav-link" href="../views/myProductsForSale.php">My Products For Sale</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/enlist.php">Create new Auction</a>
+                        <a class="nav-link" href="../views/enlist.php">Create new Auction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/logout.php">Logout</a>
+                        <a class="nav-link" href="../views/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -54,16 +54,16 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/buyerHome.php">Home</a>
+                        <a class="nav-link" href="../views/buyerHome.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/myaccount.php">My Account</a>
+                        <a class="nav-link" href="../views/myaccount.php">My Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/myOrders.php">My Orders</a>
+                        <a class="nav-link" href="../views/myOrders.php">My Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/UCLDatabases/views/logout.php">Logout</a>
+                        <a class="nav-link" href="../views/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

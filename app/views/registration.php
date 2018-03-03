@@ -1,4 +1,4 @@
-<?php include 'database.php'; ?>
+<?php include '../handlers/database.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@
         <div class = "col-sm-4"></div>
         <div class = "col-sm-4">
             <div class="main-login main-center">
-                <form class="" method="post" action="addNewUser.php">
+                <form class="" method="post" action="../handlers/addNewUser.php">
 
                     <div class="form-group">
                         <label for="username" class="cols-sm-2 control-label">Username</label>

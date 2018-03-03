@@ -195,6 +195,7 @@ if(isDataValid()){
     saveImage1();
     saveImage2();
     saveToDatabase($newItem);
-    require 'myProductsForSale.php';
+    //require 'myProductsForSale.php';
+    header('Location:myProductsForSale.php');
 }
 ?>

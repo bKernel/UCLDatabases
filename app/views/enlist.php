@@ -1,4 +1,4 @@
-<?php include("includes/navbar.php"); ?>
+<?php include("../includes/navbar.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
         <div class = "col-sm-4"></div>
         <div class = "col-sm-4">
             <div class="main-login main-center">
-                <form class="" method="post" action="addNewAuction.php" enctype="multipart/form-data">
+                <form class="" method="post" action="../handlers/addNewAuction.php" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="itemName" class="cols-sm-2 control-label">Item Name</label>
