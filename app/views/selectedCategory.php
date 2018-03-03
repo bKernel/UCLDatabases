@@ -25,14 +25,39 @@
 
             <h1 class="my-4">Team34</h1>
             <div class="list-group">
-                <a href="#" class="list-group-item">Fashion</a>
-                <a href="#" class="list-group-item">Home & Garden</a>
-                <a href="#" class="list-group-item">Electronics</a>
-                <a href="#" class="list-group-item">Sports & Hobbies</a>
-                <a href="#" class="list-group-item">Art</a>
-                <a href="#" class="list-group-item">Health & Beauty</a>
-                <a href="#" class="list-group-item">Motors</a>
-                <a href="#" class="list-group-item">Other</a>
+                <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="Fashion">
+                    <button class="btn btn-link" >Fashion</button>
+                </form>
+                <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="Home & Garden">
+                    <button class="btn btn-link">Home & Garden</button>
+                </form>
+                <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="Electronics">
+                    <button class="btn btn-link">Electronics</button>
+                </form>
+                <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="Sports & Hobbies">
+                    <button class="btn btn-link">Sports & Hobbies</button>
+                </form>
+                <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="Art">
+                    <button class="btn btn-link">Art</button>
+                </form>
+                <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="Health & Beauty">
+                    <button class="btn btn-link">Health & Beauty</button>
+                </form>
+                <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="Motors">
+                    <button class="btn btn-link">Motors</button>
+                </form>
+                <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="Other">
+                    <button class="btn btn-link">Other</button>
+                </form>
+
             </div>
 
         </div>

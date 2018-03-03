@@ -77,7 +77,10 @@
                         <a href=\"#\"><img class=\"card-img-top\" src=\"/UCLDatabases/app/resources/{$row['id']}/{$row['itemName']}/image1.png\" alt=\"\"></a>
                         <div class=\"card-body\">
                             <h4 class=\"card-title\">
-                                <a href=\"#\">{$row['itemName']}</a>
+                                <form action='../handlers/selectItemBuyer.php' method='post'>
+                    <input type='hidden' name='item' value='{$row['itemid']}'>
+                    <button class='btn btn-link'>{$row['itemName']}</button>
+                </form> 
                             </h4>
                             <h5>Current Price: {$row['currentPrice']}</h5>
                             <h6>End Time: {$row['endTime']}</h6>
