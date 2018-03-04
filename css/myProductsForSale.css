@@ -29,13 +29,13 @@ body {
 }
 
 .imageBox{
-    width:50%;
-    height:250px;
+    width:100%;
+    height:inherit;
     object-fit: contain;
 }
 
 .card-img-top{
-    height: inherit;
+    height: 100%;
     width:inherit;
     vertical-align: middle;
     object-fit: contain;
@@ -47,6 +47,6 @@ body {
 }
 
 .mb-6{
-    height:250px;
+    height:25%;
     margin-bottom: 15px;
 }

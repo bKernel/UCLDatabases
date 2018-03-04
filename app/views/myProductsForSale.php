@@ -36,7 +36,7 @@
 
                 <?php
                 $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
-                $query = "SELECT itemid, itemName, itemDescription, itemCondition, itemCategory, currentPrice FROM Auction WHERE id = {$_SESSION['id']}";
+                $query = "SELECT * FROM Auction WHERE id = {$_SESSION['id']}";
                 $result = mysqli_query($connection, $query) or die('Error making Database query');
                 echo "<div id=\"listings\" class=\"row\">";
                 while($row = mysqli_fetch_array($result)){
@@ -58,13 +58,17 @@
                                         <p class=\"card-text\">{$row['itemDescription']}</p>
                                         <form action='../handlers/selectItem.php' method='post'>
                                             <input type='hidden' name='imagesrc' value='/UCLDatabases/app/resources/{$_SESSION['id']}/{$row['itemName']}/image1.png'>                                        
+                                            <input type='hidden' name='imagesrc2' value='/UCLDatabases/app/resources/{$_SESSION['id']}/{$row['itemName']}/image2.png'>
                                             <input type='hidden' name='itemid' value='{$row['itemid']}'>
                                             <input type='hidden' name='itemName' value='{$row['itemName']}'>
                                             <input type='hidden' name='itemDescription' value='{$row['itemDescription']}'>
                                             <input type='hidden' name='itemCondition' value='{$row['itemCondition']}'>
                                             <input type='hidden' name='itemCategory' value='{$row['itemCategory']}'>    
-                                            <input type='hidden' name='currentPrice' value='{$row['currentPrice']}'>                                      
-                                            <input type='submit'></button>
+                                            <input type='hidden' name='currentPrice' value='{$row['currentPrice']}'> 
+                                            <input type='hidden' name='reservePrice' value='{$row['reservePrice']}'>                                      
+                                            <input type='hidden' name='endTime' value='{$row['endTime']}'>
+                                            <input type='hidden' name='endDate' value='{$row['endDate']}'>
+                                            <input type='submit' value='View'></button>
                                         </form>
                                     </div>
                                 </div>

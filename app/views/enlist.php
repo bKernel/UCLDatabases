@@ -83,7 +83,7 @@
                         <label for="itemCondition" class="cols-sm-2 control-label">Item Condition</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <select name="itemCondition">
+                                <select name="itemCondition" id="itemCondition">
                                     <option value="New">New</option>
                                     <option value="Used">Used</option>
                                     <option value="Refurbished">Refurbished</option>
@@ -96,7 +96,7 @@
                         <label for="itemCategory" class="cols-sm-2 control-label">Item Category</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <select name="itemCategory">
+                                <select name="itemCategory" id="itemCategory">
                                     <option value="Fashion">Fashion</option>
                                     <option value="Home & Garden">Home & Garden</option>
                                     <option value="Fashion">Fashion</option>

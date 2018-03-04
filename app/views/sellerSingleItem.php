@@ -25,33 +25,24 @@
         <div class="container-fluid">
             <div class="wrapper row">
                 <div class="preview col-md-6">
-                    <img src="<?php
-                    session_start();
-                    echo $_SESSION['imagesrc'];
-                    ?>"/>
+                    <img src="<?php session_start(); echo $_SESSION['imagesrc']; ?>"/>
                 </div>
                 <div class="details col-md-6">
                     <?php
                     session_start();
+                    $endDate = date('d/m/Y', strtotime($_SESSION['endDate']));
                     echo "<h3 class='product-title'>{$_SESSION['itemName']}</h3>";
-                    echo "<h4>Item Category: {$_SESSION['itemCategory']}</h4>";
-                    echo "<h4>Item Condition: {$_SESSION['itemCondition']}</h4>";
-                    echo "<h4 class='price'>Current Bid: <span>£{$_SESSION['currentPrice']}</span></h4>";
+                    echo "<h4>Category: {$_SESSION['itemCategory']}</h4>";
+                    echo "<h4>Condition: {$_SESSION['itemCondition']}</h4>";
+                    echo "<h4>Current Bid: <span>£{$_SESSION['currentPrice']}</span></h4>";
+                    echo "<h4>Reserve Price: <span>£{$_SESSION['reservePrice']}</span></h4>";
+                    echo "<h4>End Time: <span>{$_SESSION['endTime']}</span></h4>";
+                    echo "<h4>End Date: <span>{$endDate}</span></h4>";
                     ?>
-<!--                    <h3 class="product-title">--><?php //session_start(); echo $_SESSION['itemName']?><!--</h3>-->
 
-                    <div id="bid-column" class="col-lg-12">
-                        <div class="form-group">
-                            <div id="box-column" class="col-sm-5">
-                                <div class="input-group">
-                                    <input type="number" class="form-control" name="Bid" id="Bid"  placeholder="Enter your bid"/>
-                                </div>
-                            </div>
-                            <div id="btn-column" class="col-sm-5">
-                                <button class="add-to-cart btn btn-default" type="button">Make Bid</button>
-                            </div>
-                        </div>
-                    </div>
+                    <form action="editSellerItem.php">
+                        <button>Edit</button>
+                    </form>
 
                 </div>
             </div>
