@@ -115,19 +115,18 @@ function updateImage1()
 function saveToDatabase($item)
 {
 
-    echo $itemName = $item['itemName'];
-    echo $itemDescription = $item['itemDescription'];
-    echo $itemCondition = $item['itemCondition'];
-    echo $itemCategory = $item['itemCategory'];
-    echo $endTime = $item['endTime'];
-    echo $endDate = $item['endDate'];
-    echo $reservePrice = $item['reservePrice'];
+    $itemName = $item['itemName'];
+    $itemDescription = $item['itemDescription'];
+    $itemCondition = $item['itemCondition'];
+    $itemCategory = $item['itemCategory'];
+    $endTime = $item['endTime'];
+    $endDate = $item['endDate'];
+    $reservePrice = $item['reservePrice'];
 
 
     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
     $session = $_SESSION['itemid'];
-    echo $session;
-    $sql = "UPDATE Auction
+    $sql = "UPDATE auctiondb.auction
 
     SET
     itemName = '$itemName',
@@ -140,7 +139,6 @@ function saveToDatabase($item)
     
     WHERE itemid='$session'";
 
-    echo $sql;
 
     mysqli_query($connection, $sql);
     mysqli_close($connection);
@@ -149,7 +147,6 @@ function saveToDatabase($item)
 
 
 $update = getItem();
-
 saveToDatabase($update);
 setNewSession($update);
 header('Location:../views/sellerSingleItem.php');

@@ -72,7 +72,7 @@ function saveToDatabase($user)
 
     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
     $session = $_SESSION['id'];
-    $sql = "UPDATE User
+    $sql = "UPDATE auctiondb.user
 
     SET
     username = '$username',
