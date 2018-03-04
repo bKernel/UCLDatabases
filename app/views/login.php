@@ -31,7 +31,7 @@
                 <div class="panel-heading">
                     <h1>Login</h1></div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="post" action="login.php">
+                    <form class="form-horizontal" role="form" method="post" action="../handlers/handleLogin.php">
                         <div class="form-group">
                             <label for="username" class="col-sm-3 control-label">Username</label>
                             <div class="col-sm-12">

@@ -8,8 +8,8 @@ $username = $mysqli->escape_string($_POST['username']);
 $result = $mysqli->query("SELECT * FROM User WHERE username='$username'");
 
 if ( $result->num_rows == 0 ){ // User doesn't exist
-    $_SESSION['message'] = "User with that email doesn't exist!";
-    header("location: login.php");
+    $_SESSION['message'] = "Your username and password combination is not recognised";
+    header("location: ../views/login.php");
 } else { // User exists
     $user = $result->fetch_assoc();
 
@@ -37,13 +37,13 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
         if($_SESSION['userType'] === 'buyer'){
 
             //require 'buyerHome.php';
-            header('Location:buyerHome.php');
+            header('Location:../views/buyerHome.php');
         } elseif ($_SESSION['userType'] === 'seller'){
             //require 'myProductsForSale.php';
-            header('Location:myProductsForSale.php');
+            header('Location:../views/myProductsForSale.php');
         } elseif ($_SESSION['userType'] === 'admin'){
             //require 'adminHome.php';
-            header('Location:adminHome.php');
+            header('Location:../views/adminHome.php');
         }
     } else {
         $_SESSION['message'] = "You have entered wrong password, try again!";
