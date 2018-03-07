@@ -54,7 +54,11 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../views/buyerHome.php">Home</a>
+
+                        <form action='../handlers/selectCategory.php' method='post'>
+                            <input type="hidden" name="category" value="ANY">
+                            <button class="btn btn-link">Home</button>
+                        </form>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../views/myaccount.php">My Account</a>

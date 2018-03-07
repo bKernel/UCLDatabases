@@ -26,8 +26,12 @@
             <h1 class="my-4">Team34</h1>
             <div class="list-group">
                 <form action='../handlers/selectCategory.php' method='post'>
+                    <input type="hidden" name="category" value="ANY">
+                    <button class="btn btn-link" >All</button>
+                </form>
+                <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Fashion">
-                <button class="btn btn-link" >Fashion</button>
+                    <button class="btn btn-link" >Fashion</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
                     <input type="hidden" name="category" value="Home & Garden">
@@ -66,13 +70,20 @@
         <div class="col-lg-9">
 
 
-                <?php
-                $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
+            <?php
+
+            $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
+
+            if ($_SESSION['selectedCategory'] === 'ANY'){
                 $query = "SELECT * FROM Auction";
-                $result = mysqli_query($connection, $query) or die('Error making Database query');
-                echo "<div id=\"listings\" class=\"row\">";
-                while($row = mysqli_fetch_array($result)){
-                    echo "
+            }
+            else {
+                $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}'";
+            }
+            $result = mysqli_query($connection, $query) or die('Error making Database query');
+            echo "<div id=\"listings\" class=\"row\">";
+            while($row = mysqli_fetch_array($result)){
+                echo "
                     <div class=\"col-lg-6 col-md-6 mb-6\">
                         <div class=\"card\">
                             <div class='row'>
@@ -85,9 +96,9 @@
                                         <h4 class=\"card-title\">
                                             <form action='../handlers/selectItemBuyer.php' method='post'>
                                                 <input type='hidden' name='item' value='{$row['itemid']}'>
-                                                <button class='btn btn-link'>{$row['itemName']}</button>
+                                                <button class='btn btn-link' style='font-size: 24px;'>{$row['itemName']}</button>
                                             </form> 
-                                            <a href=\"#\">{$row['itemName']}</a>
+                                          
                                         </h4>
                                         <h5>£{$row['currentPrice']}</h5>
                                         <h6>End Time: {$row['endTime']}</h6>
@@ -99,9 +110,10 @@
                             </div>
                         </div>
                     </div>";
-                }
 
-                ?>
+            }
+
+            ?>
 
 
 
