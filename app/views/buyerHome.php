@@ -3,14 +3,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="/UCLDatabases/bootstrap-4-2/css/bootstrap.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/UCLDatabases/bootstrap-4-2/css/bootstrap-grid.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/UCLDatabases/bootstrap-4-2/css/bootstrap-reboot.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../bootstrap-4-2/css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../bootstrap-4-2/css/bootstrap-grid.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../bootstrap-4-2/css/bootstrap-reboot.css" media="screen" />
 
-    <script type="text/javascript" src="/UCLDatabases/bootstrap-4-2/js/bootstrap.bundle.js"></script>
-    <script type="text/javascript" src="/UCLDatabases/bootstrap-4-2/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../bootstrap-4-2/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="../../bootstrap-4-2/js/bootstrap.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/UCLDatabases/css/directory.css" media="screen" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/directory.css" media="screen" />
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -62,6 +65,7 @@
                     <button class="btn btn-link">Other</button>
                 </form>
 
+
             </div>
 
         </div>
@@ -69,16 +73,52 @@
 
         <div class="col-lg-9">
 
+            <div class="dropdown">
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort By
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <form action='../handlers/chooseSort.php' method='post'>
+                        <input type="hidden" name="sort" value="itemid">
+                        <button class="btn btn-link">Oldest</button>
+                    </form>
+                    <form action='../handlers/chooseSort.php' method='post'>
+                        <input type="hidden" name="sort" value="itemid DESC">
+                        <button class="btn btn-link">Newest</button>
+                    </form>
+                    <form action='../handlers/chooseSort.php' method='post'>
+                        <input type="hidden" name="sort" value="endDate">
+                        <button class="btn btn-link">Ending Soonest</button>
+                    </form>
+                    <form action='../handlers/chooseSort.php' method='post'>
+                        <input type="hidden" name="sort" value="endDate DESC">
+                        <button class="btn btn-link">Ending Latest</button>
+                    </form>
+                    <form action='../handlers/chooseSort.php' method='post'>
+                        <input type="hidden" name="sort" value="itemName">
+                        <button class="btn btn-link">Alphabetical</button>
+                    </form>
+                    <form action='../handlers/chooseSort.php' method='post'>
+                        <input type="hidden" name="sort" value="currentPrice">
+                        <button class="btn btn-link">Lowest Price</button>
+                    </form>
+                    <form action='../handlers/chooseSort.php' method='post'>
+                        <input type="hidden" name="sort" value="currentPrice DESC">
+                        <button class="btn btn-link">Highest Price</button>
+                    </form>
+                </div>
+            </div>
 
             <?php
 
             $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
 
             if ($_SESSION['selectedCategory'] === 'ANY'){
-                $query = "SELECT * FROM Auction";
+                $query = "SELECT * FROM Auction ORDER BY {$_SESSION['sort']};";
             }
             else {
-                $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}'";
+                $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}' ORDER BY {$_SESSION['sort']};";
             }
             $result = mysqli_query($connection, $query) or die('Error making Database query');
             echo "<div id=\"listings\" class=\"row\">";

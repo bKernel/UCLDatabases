@@ -36,6 +36,7 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
 
         if($_SESSION['userType'] === 'buyer'){
             $_SESSION['selectedCategory'] = 'ANY';
+            $_SESSION['sort'] = 'itemid';
             //require 'buyerHome.php';
             header('Location:../views/buyerHome.php');
         } elseif ($_SESSION['userType'] === 'seller'){
