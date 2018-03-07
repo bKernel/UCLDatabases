@@ -56,7 +56,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
                     <li class="nav-item">
 
                         <form action='../handlers/selectCategory.php' method='post'>
-                            <input type="hidden" name="category" value="ANY">
+                            <input type="hidden" name="category" value="All">
                             <button class="btn btn-link" style="font-size: 18px; color: darkgray;">Home</button>
                         </form>
                     </li>

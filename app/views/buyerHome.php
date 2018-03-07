@@ -26,10 +26,10 @@
 
         <div class="col-lg-3">
 
-            <h1 class="my-4">Team34</h1>
+            <h2 class="my-4">Categories</h2>
             <div class="list-group">
                 <form action='../handlers/selectCategory.php' method='post'>
-                    <input type="hidden" name="category" value="ANY">
+                    <input type="hidden" name="category" value="All">
                     <button class="btn btn-link" >All</button>
                 </form>
                 <form action='../handlers/selectCategory.php' method='post'>
@@ -72,10 +72,17 @@
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-
+            <form action="../handlers/searchByItem.php" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="search" id="search"  placeholder="Search by Item Name" required/>
+                    <button type="submit" class="btn btn-secondary">Search</button>
+                </div>
+            </form>
             <div class="dropdown">
 
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <br>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                     Sort By
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -109,18 +116,40 @@
                     </form>
                 </div>
             </div>
+            <br>
+
+
 
             <?php
 
             $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
-
-            if ($_SESSION['selectedCategory'] === 'ANY'){
+            if ($_SESSION['search'] === ''){
+            if ($_SESSION['selectedCategory'] === 'All'){
                 $query = "SELECT * FROM Auction ORDER BY {$_SESSION['sort']};";
             }
             else {
                 $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}' ORDER BY {$_SESSION['sort']};";
+            }}
+            else{
+                if ($_SESSION['selectedCategory'] === 'All'){
+                    $query = "SELECT * FROM Auction WHERE itemName LIKE '%{$_SESSION['search']}%'  ORDER BY {$_SESSION['sort']};";
+                }
+                else {
+                    $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}' AND itemName LIKE '%{$_SESSION['search']}%' ORDER BY {$_SESSION['sort']};";
+                }
+            echo "  <h4> Showing results for '{$_SESSION['search']}'</h4>
+  
+                    <form action='../handlers/searchByItem.php' method='post'>
+               
+                    <input type='hidden' name='search' value=''>
+                    <button type='submit' class='btn btn-secondary' style='float:right'>Clear Search</button>
+              
+            </form>";
             }
+
             $result = mysqli_query($connection, $query) or die('Error making Database query');
+            echo "<br>
+                    <h3> {$_SESSION['selectedCategory']} </h3>";
             echo "<div id=\"listings\" class=\"row\">";
             while($row = mysqli_fetch_array($result)){
                 echo "
