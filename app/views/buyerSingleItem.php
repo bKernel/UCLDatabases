@@ -32,8 +32,13 @@
                     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
                     $query = "SELECT * FROM Auction WHERE itemid = '{$_SESSION['selectedItemBuyer']}'";
 
+
                     $result = mysqli_query($connection, $query) or die('Error making Database query');
+
+
                     $row = mysqli_fetch_array($result);
+
+                    $minPrice = $row['currentPrice'] + 1;
 
                     echo "
                     
@@ -46,17 +51,25 @@
                     
                     ";
                     ?>
-
-                    <div id="bid-column" class="col-lg-12">
-                        <div class="form-group">
-                            <div id="box-column" class="col-sm-5">
-                                <div class="input-group">
-                                    <input type="number" class="form-control" name="Bid" id="Bid"  placeholder="Enter your bid"/>
+                    <?php echo"
+                    <div id='bid-column' class='col-lg-12'>
+                        <div class='form-group'>
+                        
+                            <div id='box-column' class='col-sm-5'>
+                                 <form action='../handlers/makeBid.php' method='post'>
+                                <div class='input-group'>
+                                    <input type='number' class='form-control' name='amount' id='amount' min='$minPrice' placeholder='$minPrice'/>
                                 </div>
                             </div>
-                            <div id="btn-column" class="col-sm-5">
-                                <button class="add-to-cart btn btn-default" type="button">Make Bid</button>
+                            <div id='btn-column' class='col-sm-5'>
+                                    <input type='hidden' name='currentPrice' value='$minPrice'>
+                                    <input type='hidden' name='bidderid' value='{$_SESSION['id']}'>
+                                    <input type='hidden' name='auctionid' value='{$row['itemid']}'>
+                                    <button class='btn btn-default add-to-cart'>Make Bid</button>
+                                </form>
+                            "; ?>
                             </div>
+
 
                         </div>
                         <div class="container-fluid">
