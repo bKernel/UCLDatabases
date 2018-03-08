@@ -84,6 +84,7 @@
                             if (distance < 0) {
                                 clearInterval(x);
                                 document.getElementById(\"demo\").innerHTML = \"EXPIRED\";
+                                document.getElementById('end').submit();
                             }
                         }, 1000);
                         </script>
@@ -121,7 +122,19 @@
 
                             echo "<h3>Item Description</h3>";
                             echo "{$row['itemDescription']}";
+                            echo"
+                            
+                             <form name='end' id= 'end' method='post' action='../handlers/endAuction.php'>
+                                <input type='hidden' name='auctionid' value='{$row['itemid']}'>
+                                <input type='hidden' name='itemName' value='{$row['itemName']}'>
+                                <input type='hidden' name='sellerid' value='{$row['id']}'>
+
+                            </form>
+                            
+                            
+                            "
                             ?>
+
                         </div>
                     </div>
 
