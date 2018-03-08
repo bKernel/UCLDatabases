@@ -125,17 +125,17 @@
             $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
             if ($_SESSION['search'] === ''){
             if ($_SESSION['selectedCategory'] === 'All'){
-                $query = "SELECT * FROM Auction ORDER BY {$_SESSION['sort']};";
+                $query = "SELECT * FROM Auction WHERE status = 'open' ORDER BY {$_SESSION['sort']};";
             }
             else {
-                $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}' ORDER BY {$_SESSION['sort']};";
+                $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}' AND status='open' ORDER BY {$_SESSION['sort']};";
             }}
             else{
                 if ($_SESSION['selectedCategory'] === 'All'){
-                    $query = "SELECT * FROM Auction WHERE itemName LIKE '%{$_SESSION['search']}%'  ORDER BY {$_SESSION['sort']};";
+                    $query = "SELECT * FROM Auction WHERE itemName LIKE '%{$_SESSION['search']}%' AND status='open' ORDER BY {$_SESSION['sort']};";
                 }
                 else {
-                    $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}' AND itemName LIKE '%{$_SESSION['search']}%' ORDER BY {$_SESSION['sort']};";
+                    $query = "SELECT * FROM Auction WHERE itemCategory = '{$_SESSION['selectedCategory']}' AND itemName LIKE '%{$_SESSION['search']}%' AND status='open' ORDER BY {$_SESSION['sort']};";
                 }
             echo "  <h4> Showing results for '{$_SESSION['search']}'</h4>
   
