@@ -2,6 +2,7 @@
 session_start();
 $_SESSION['closedauction'] = $_POST['auctionid'];
 $_SESSION['wonitem'] = $_POST['itemName'];
+$_SESSION['reservePrice'] = $_POST['reserve'];
 
 
 function updateAuctionStatus()
@@ -30,6 +31,12 @@ function getAuctionDetails()
     $details['winningbid'] = $row['bidamount'];
     $_SESSION['winner'] = $row['bidderid'];
     $_SESSION['seller'] = $_POST['sellerid'];
+    if($row['bidamount']>= $_SESSION['reservePrice']){
+        $_SESSION['reserveMet'] = 'Yes';
+    }
+    else{
+        $_SESSION['reserveMet'] = 'No';
+    }
 
     return $details;
 }
@@ -52,7 +59,7 @@ function notifyWinner($details)
 
 }
 
-function notifySeller($details)
+function notifySellerSuccessful($details)
 {
 
 
@@ -69,6 +76,22 @@ function notifySeller($details)
 
 }
 
+function notifySellerUnsuccessful($details)
+{
+
+
+    $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
+    $query = "SELECT * FROM User WHERE id = '{$_SESSION['seller']}';";
+    $result = mysqli_query($connection, $query) or die('Error making Database query');
+    $row = mysqli_fetch_array($result);
+    $to      =  'sibi.chandar@gmail.com';
+    $subject = 'Your Auction is Over!';
+    $message = "Sorry, you have not sold '{$_SESSION['wonitem']}'. The reserve price was not met. ";
+    $headers = 'From: webmaster@example.com';
+
+    mail($to, $subject, $message, $headers);
+
+}
 
 function saveNewResult($details)
 {
@@ -81,8 +104,12 @@ function saveNewResult($details)
 
 updateAuctionStatus();
 $newResults=getAuctionDetails();
+if($_SESSION['reserveMet'] == 'Yes'){
 notifywinner($newResults);
-notifySeller($newResults);
+notifySellerSuccessful($newResults);
+}
+else{
+    notifySellerUnsuccessful($newResults);}
 saveNewResult($newResults);
 require '../views/buyerHome.php';
 

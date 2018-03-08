@@ -128,6 +128,8 @@
                                 <input type='hidden' name='auctionid' value='{$row['itemid']}'>
                                 <input type='hidden' name='itemName' value='{$row['itemName']}'>
                                 <input type='hidden' name='sellerid' value='{$row['id']}'>
+                                <input type='hidden' name='reserve' value='{$row['reservePrice']}'>
+                                
 
                             </form>
                             
