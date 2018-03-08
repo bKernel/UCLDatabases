@@ -8,6 +8,7 @@
 
     <script type="text/javascript" src="/UCLDatabases/bootstrap-4-2/js/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="/UCLDatabases/bootstrap-4-2/js/bootstrap.js"></script>
+    <script type="text/javascript" src="http://yourjavascript.com/88131111995/jquery.countdown.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
@@ -34,9 +35,14 @@
 
 
                     $result = mysqli_query($connection, $query) or die('Error making Database query');
+                    date_default_timezone_set('Europe/London');
 
 
                     $row = mysqli_fetch_array($result);
+
+                    $endDate = $row['endDate'];
+                    $endTime = $row['endTime'];
+                    $dateTime = $endDate . " " . $endTime;
 
                     $minPrice = $row['currentPrice'] + 1;
 
@@ -47,7 +53,42 @@
                     <img src=\"/UCLDatabases/app/resources/{$row['id']}/{$row['itemName']}/image1.png\"/>
                     <h4>Item Category: {$row['itemCategory']}</h4>
                     <h4>Item Condition: {$row['itemCondition']}</h4>
-                    <h4 class='price'>Current Bid: <span>£{$row['currentPrice']}</span></h4>
+                   
+                    <p>Time Remaining: </p>
+                    <p id=\"demo\"></p>
+        
+                        <script>
+                        // Set the date we're counting down to
+                        var countDownDate = new Date('$dateTime').getTime();
+                        
+                        // Update the count down every 1 second
+                        var x = setInterval(function() {
+                        
+                            // Get todays date and time
+                            var now = new Date().getTime();
+                            
+                            // Find the distance between now an the count down date
+                            var distance = countDownDate - now;
+                            
+                            // Time calculations for days, hours, minutes and seconds
+                            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                            
+                            // Output the result in an element with id=\"demo\"
+                            document.getElementById(\"demo\").innerHTML = days + \"d \" + hours + \"h \"
+                            + minutes + \"m \" + seconds + \"s \";
+                            
+                            // If the count down is over, write some text 
+                            if (distance < 0) {
+                                clearInterval(x);
+                                document.getElementById(\"demo\").innerHTML = \"EXPIRED\";
+                            }
+                        }, 1000);
+                        </script>
+                        
+                            <h4 class='price'>Current Bid: <span>£{$row['currentPrice']}</span></h4>
                     
                     ";
                     ?>

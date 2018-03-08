@@ -152,6 +152,16 @@
                     <h3> {$_SESSION['selectedCategory']} </h3>";
             echo "<div id=\"listings\" class=\"row\">";
             while($row = mysqli_fetch_array($result)){
+                date_default_timezone_set('Europe/London');
+                $endDate = $row['endDate'];
+                $nowDate = date("Y-m-d");
+                $diff = floor((strtotime($endDate) - strtotime($nowDate))/(60*60*24));
+                if(strlen($row['itemDescription']) >20) {
+                    $description = substr($row['itemDescription'], 0, 20) . "...";
+                }
+                else{
+                    $description = substr($row['itemDescription'], 0, 20);
+                }
                 echo "
                     <div class=\"col-lg-6 col-md-6 mb-6\">
                         <div class=\"card\">
@@ -170,10 +180,11 @@
                                           
                                         </h4>
                                         <h5>£{$row['currentPrice']}</h5>
-                                        <h6>End Time: {$row['endTime']}</h6>
-                                        <h6>End Date: {$row['endDate']}</h6>
-                                        <h6>{$row['itemCategory']}</h6>
-                                        <p class=\"card-text\">{$row['itemDescription']}</p>
+                                        
+                                        <p>Days Remaining: $diff </p>
+                                        <p >End Time: {$row['endTime']}</p>
+                                        <p> Category: {$row['itemCategory']}</p>
+                                        <p> Description: $description</p>
                                     </div>
                                 </div>
                             </div>
