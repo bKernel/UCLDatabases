@@ -67,7 +67,7 @@ if(isDataValid()){
     saveNewBid($newBid);
     //require '../views/buyerSingleItem.php';
    // header('Location:../views/buyerSingleItem.php');
-    header('Location:../views/makeBid.php');
+    header('Location:../views/buyerSingleItem.php');
 }
 
 

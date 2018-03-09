@@ -32,8 +32,8 @@
                     <?php
                     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
                     $query = "SELECT * FROM Auction WHERE itemid = '{$_SESSION['selectedItemBuyer']}'";
-
-
+                    $bidquery = "SELECT * FROM Bid WHERE auctionid = '{$_SESSION['selectedItemBuyer']}' ORDER BY bidamount DESC LIMIT 5;";
+                    $bidresult = $result = mysqli_query($connection, $bidquery) or die('Error making Database query');
                     $result = mysqli_query($connection, $query) or die('Error making Database query');
                     date_default_timezone_set('Europe/London');
 
@@ -90,9 +90,23 @@
                         </script>
                         
                             <h4 class='price'>Current Bid: <span>£{$row['currentPrice']}</span></h4>
+                            
+                            <h6> Bid History: </h6>
                     
                     ";
+                    while($bidrow = mysqli_fetch_array($bidresult)){
+
+                        echo " 
+                        
+                        <ul> Amount: £{$bidrow['bidamount']}
+                        Time: {$bidrow['time']}
+                        Date:   {$bidrow['date']}
+                        </ul>
+                        ";
+
+                    }
                     ?>
+
                     <?php echo"
                     <div id='bid-column' class='col-lg-12'>
                         <div class='form-group'>
