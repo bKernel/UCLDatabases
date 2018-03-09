@@ -65,9 +65,11 @@ if(isDataValid()){
     $newBid = getBid();
     updateCurrentPrice();
     saveNewBid($newBid);
-    require '../views/buyerSingleItem.php';
-    // header('Location:myProductsForSale.php');
+    //require '../views/buyerSingleItem.php';
+   // header('Location:../views/buyerSingleItem.php');
+    header('Location:../views/makeBid.php');
 }
+
 
 
 

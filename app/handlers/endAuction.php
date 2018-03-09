@@ -1,4 +1,11 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+
+
+//Load composer's autoloader
+require '../vendor/autoload.php';
+
+
 session_start();
 $_SESSION['closedauction'] = $_POST['auctionid'];
 $_SESSION['wonitem'] = $_POST['itemName'];
@@ -44,52 +51,81 @@ function getAuctionDetails()
 
 function notifyWinner($details)
 {
-
-
     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
     $query = "SELECT * FROM User WHERE id = '{$_SESSION['winner']}';";
     $result = mysqli_query($connection, $query) or die('Error making Database query');
     $row = mysqli_fetch_array($result);
-    $to      =  'sibi.chandar.17@ucl.ac.uk';
-    $subject = 'You won an Auction!';
-    $message = "Congrats, you have just won '{$_SESSION['wonitem']}'. You paid ${details['winningbid']} ";
-    $headers = 'From: webmaster@example.com';
+    $to = $row['email'];
+    $name = $row['firstName'] . " " . $row['surname'];
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPDebug = 2;
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = true;
+    $mail->Username = "databases.group.34@gmail.com";
+    $mail->Password = "JackSparrow34";
+    $mail->setFrom('databases.group.34@gmail.com', 'Group 34');
+    $mail->addReplyTo('databases.group.34@gmail.com', 'Group 34');
+    $mail->addAddress($to,$name);
+    $mail->Subject = 'You have won an auction!';
+    $mail->Body = 'Hi ' . $name . '! You won the auction for: '. $_SESSION['wonitem'] . '. Your winning bid was '. $details['winningbid'] .'.';
 
-    mail($to, $subject, $message, $headers);
+    $mail->send();
 
 }
 
 function notifySellerSuccessful($details)
 {
-
-
     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
     $query = "SELECT * FROM User WHERE id = '{$_SESSION['seller']}';";
     $result = mysqli_query($connection, $query) or die('Error making Database query');
     $row = mysqli_fetch_array($result);
-    $to      =  'sibi.chandar@gmail.com';
-    $subject = 'Your Auction is Over!';
-    $message = "Congrats, you have just sold '{$_SESSION['wonitem']}'. The top bid was ${details['winningbid']} ";
-    $headers = 'From: webmaster@example.com';
+    $to = $row['email'];
+    $name = $row['firstName'] . " " . $row['surname'];
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPDebug = 2;
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = true;
+    $mail->Username = "databases.group.34@gmail.com";
+    $mail->Password = "JackSparrow34";
+    $mail->setFrom('databases.group.34@gmail.com', 'Group 34');
+    $mail->addReplyTo('databases.group.34@gmail.com', 'Group 34');
+    $mail->addAddress($to,$name);
+    $mail->Subject = 'Your auction is over!';
+    $mail->Body = 'Hi ' . $name . '! Congrats! You sold your '. $_SESSION['wonitem'] . '. Your winning bid was '. $details['winningbid'] .'.';
 
-    mail($to, $subject, $message, $headers);
+    $mail->send();
 
 }
 
-function notifySellerUnsuccessful($details)
+function notifySellerUnsuccessful()
 {
-
-
     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
     $query = "SELECT * FROM User WHERE id = '{$_SESSION['seller']}';";
     $result = mysqli_query($connection, $query) or die('Error making Database query');
     $row = mysqli_fetch_array($result);
-    $to      =  'sibi.chandar@gmail.com';
-    $subject = 'Your Auction is Over!';
-    $message = "Sorry, you have not sold '{$_SESSION['wonitem']}'. The reserve price was not met. ";
-    $headers = 'From: webmaster@example.com';
+    $to = $row['email'];
+    $name = $row['firstName'] . " " . $row['surname'];
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = true;
+    $mail->Username = "databases.group.34@gmail.com";
+    $mail->Password = "JackSparrow34";
+    $mail->setFrom('databases.group.34@gmail.com', 'Group 34');
+    $mail->addReplyTo('databases.group.34@gmail.com', 'Group 34');
+    $mail->addAddress($to,$name);
+    $mail->Subject = 'Your auction is over!';
+    $mail->Body = 'Hi ' . $name . '! You did not sell your '. $_SESSION['wonitem'] . '. Your reserve price of '. $_SESSION['reservePrice'] .' was not met.';
 
-    mail($to, $subject, $message, $headers);
+    $mail->send();
 
 }
 
@@ -105,12 +141,12 @@ function saveNewResult($details)
 updateAuctionStatus();
 $newResults=getAuctionDetails();
 if($_SESSION['reserveMet'] == 'Yes'){
-notifywinner($newResults);
+notifyWinner($newResults);
 notifySellerSuccessful($newResults);
 }
 else{
-    notifySellerUnsuccessful($newResults);}
+    notifySellerUnsuccessful();}
 saveNewResult($newResults);
-require '../views/buyerHome.php';
-
+//require '../views/buyerHome.php';
+header('Location:../views/buyerHome.php');
 ?>;
