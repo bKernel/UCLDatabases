@@ -93,7 +93,11 @@ function saveToDatabase($user)
 if(isDataValid()){
     $newUser = getUser();
     saveToDatabase($newUser);
-    require '../views/login.php';
+    if($newUser['userType']=== 'admin'){
+        header("location: ../views/manageAdmins.php");
+    } else {
+        header("location: ../views/login.php");
+    }
    // header('Location:login.php');
 }
 ?>

@@ -72,6 +72,28 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
                 </ul>
             </div>
 
+        <?php } elseif ($_SESSION['userType'] === 'admin'){ ?>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/myaccount.php">Manage Admin Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/manageUsers.php">Manage Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/manageAdmins.php">Manage Admins</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/manageAuctions.php">Manage Auctions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../views/logout.php">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
         <?php } ?>
 
     </div>

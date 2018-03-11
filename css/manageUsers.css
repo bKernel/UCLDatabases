@@ -1,0 +1,62 @@
+body {
+    padding-top: 54px;
+    overflow: scroll;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+#listings{
+    padding-top: 35px;
+    width: 100%;
+    margin: 0;
+}
+
+#newProduct{
+    float: right;
+}
+
+.btn{
+    background: #ff9f1a;
+    padding: 1.2em 1.5em;
+    margin-right:1.5em;
+    border: none;
+    text-transform: UPPERCASE;
+    font-weight: bold;
+    color: #fff;
+}
+
+.imageBox{
+    width:100%;
+    height:inherit;
+    object-fit: contain;
+}
+
+.card-img-top{
+    height: 100%;
+    width:inherit;
+    vertical-align: middle;
+    object-fit: contain;
+    padding-left: 10px;
+}
+
+.card{
+    height:100%;
+}
+
+.mb-6{
+    height:25%;
+    margin-bottom: 15px;
+}
+
+.card-text{
+    margin: 1px;
+    font-size: 11px;
+}
+
+#submit{
+    font-size: 11px;
+}

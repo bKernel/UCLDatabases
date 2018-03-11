@@ -170,6 +170,11 @@
                 <button>Edit</button>
             </form>
 
+            <form action="../handlers/deleteUser.php" method="post">
+                <input type="hidden" name='id' value="<?php echo $_SESSION['id'] ?>">
+                <button>Delete my Account</button>
+            </form>
+
         </div>
         <div class = "col-sm-3"></div>
     </div>
