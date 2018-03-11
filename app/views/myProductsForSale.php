@@ -27,9 +27,15 @@
             <br>
                 <div class="col-xs-12">
                     <h3 style="float: left"> Your Products for Sale</h3>
+
                     <a href="enlist.php">
                         <button class="btn" id="newProduct">Enlist new Product</button>
                     </a>
+
+                    <a href="enlist.php">
+                        <button class="btn" id="newProduct">Send Report</button>
+                    </a>
+
                 </div>
 
             <div class="container col-xs-12" style="padding: 0">
