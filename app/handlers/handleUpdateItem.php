@@ -14,6 +14,7 @@ function getItem()
     $item['itemDescription'] = $_POST['itemDescription'];
     $item['itemCondition'] = $_POST['itemCondition'];
     $item['itemCategory'] = $_POST['itemCategory'];
+    $item['itemPicture1'] = $_POST['itemPicture1'];
 
     return $item;
 }
@@ -56,8 +57,8 @@ function setNewSession($item)
 
 function updateImage1()
 {
-    if(isset($_POST['itemPicture1'])) {
-        unlink($_SESSION['imagesrc']);
+    if(!($_FILES["itemPicture1"]===null)) {
+        unlink('../resources/5/Rolex/image1.png');
         $target_dir = "../resources/{$_SESSION['id']}/{$_POST['itemName']}";
         $target_file = $target_dir . basename($_FILES["itemPicture1"]["name"]);
         $uploadOk = 1;
@@ -92,12 +93,6 @@ function updateImage1()
             $uploadOk = 0;
         }
 
-        // Allow certain file formats
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif") {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-        }
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
@@ -105,6 +100,58 @@ function updateImage1()
         } else {
             if (move_uploaded_file($_FILES["itemPicture1"]["tmp_name"], $target_file)) {
                 rename("$target_file", "../resources/{$_SESSION['id']}/{$_POST['itemName']}/image1.png");
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+}
+
+function updateImage2()
+{
+    if(!($_FILES["itemPicture2"]===null)) {
+        unlink('../resources/5/Rolex/image2.png');
+        $target_dir = "../resources/{$_SESSION['id']}/{$_POST['itemName']}";
+        $target_file = $target_dir . basename($_FILES["itemPicture2"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        // Check if image file is a actual image or fake image
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["itemPicture2"]["tmp_name"]);
+            if ($check !== false) {
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif") {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["itemPicture2"]["tmp_name"], $target_file)) {
+                rename("$target_file", "../resources/{$_SESSION['id']}/{$_POST['itemName']}/image2.png");
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -135,10 +182,9 @@ function saveToDatabase($item)
     itemCategory = '$itemCategory',
     endTime = '$endTime',
     endDate = '$endDate',
-    reservePrice = '$reservePrice',
+    reservePrice = '$reservePrice'
     
     WHERE itemid='$session'";
-
 
     mysqli_query($connection, $sql);
     mysqli_close($connection);
@@ -147,6 +193,8 @@ function saveToDatabase($item)
 
 
 $update = getItem();
+updateImage1();
+updateImage2();
 saveToDatabase($update);
 setNewSession($update);
 header('Location:../views/sellerSingleItem.php');

@@ -24,7 +24,7 @@
             <h1 align="left">Edit Your Auction Details</h1>
         </div>
 
-        <form action="../handlers/handleUpdateItem.php" method="post">
+        <form action="../handlers/handleUpdateItem.php" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-sm-6">
                     <label for="itemName" class="cols-sm-2 control-label">Item Name:</label>
@@ -125,7 +125,7 @@
                         "?>
                     </div>
                     <br>
-                        <input type="file" accept=".png, .jpeg, .jpg" class="form-control" name="itemPicture1" id="itemPicture1" value="<?php $_SESSION['imagesrc'] ?>"/>
+                    <input type="file" accept=".png, .jpeg, .jpg" class="form-control" name="itemPicture1" id="itemPicture1"/>
                 </div>
             </div>
 
@@ -141,11 +141,13 @@
                         "?>
                     </div>
                     <br>
-                    <input type="file" accept=".png, .jpeg, .jpg" class="form-control" name="itemPicture1" id="itemPicture1" value="<?php $_SESSION['imagesrc'] ?>"/>
+                    <input type="file" accept=".png, .jpeg, .jpg" class="form-control" name="itemPicture2" id="itemPicture2"/>
                 </div>
             </div>
 
-            <button>Submit</button>
+            <div class="form-group ">
+                <input id="show-btn" type="submit" name="submit" value="Submit"/>
+            </div>
         </form>
     </div>
     <div class = "col-sm-3"></div>
