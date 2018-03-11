@@ -57,6 +57,9 @@
             echo "{$_SESSION['itemDescription']}";
             ?>
         </div>
+        <a href="progressReport.php">
+            <button class="btn" id="auctionReport">Send Report</button>
+        </a>
     </div>
 </div>
 

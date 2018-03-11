@@ -17,7 +17,6 @@
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
-      <secret-storage>master_key</secret-storage>
       <user-name>auction34@auctionmanagement34</user-name>
       <introspection-schemas>*:auctiondb</introspection-schemas>
     </data-source>
