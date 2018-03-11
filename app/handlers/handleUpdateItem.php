@@ -57,8 +57,8 @@ function setNewSession($item)
 
 function updateImage1()
 {
-    if(!($_FILES["itemPicture1"]===null)) {
-        unlink('../resources/5/Rolex/image1.png');
+    if(isset($_POST["itemPicture1"])) {
+//        unlink('../resources/5/Rolex/image1.png');
         $target_dir = "../resources/{$_SESSION['id']}/{$_POST['itemName']}";
         $target_file = $target_dir . basename($_FILES["itemPicture1"]["name"]);
         $uploadOk = 1;
@@ -109,8 +109,8 @@ function updateImage1()
 
 function updateImage2()
 {
-    if(!($_FILES["itemPicture2"]===null)) {
-        unlink('../resources/5/Rolex/image2.png');
+    if(isset($_POST["itemPicture2"])) {
+//        unlink('../resources/5/Rolex/image2.png');
         $target_dir = "../resources/{$_SESSION['id']}/{$_POST['itemName']}";
         $target_file = $target_dir . basename($_FILES["itemPicture2"]["name"]);
         $uploadOk = 1;
