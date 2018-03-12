@@ -156,6 +156,9 @@
                 $endDate = $row['endDate'];
                 $nowDate = date("Y-m-d");
                 $diff = floor((strtotime($endDate) - strtotime($nowDate))/(60*60*24));
+                if($diff<0){
+                    $diff = "Auction Ended";
+                }
                 if(strlen($row['itemDescription']) >20) {
                     $description = substr($row['itemDescription'], 0, 20) . "...";
                 }
@@ -192,6 +195,104 @@
                     </div>";
 
             }
+            echo "<h6> You might be interested in... </h6>
+                   _________________________________________________________________________________________________________________________
+                   ";
+            $query1 = "select itemCategory, COUNT(*) AS TOTAL
+                        from auction
+                        where itemid IN (
+                          SELECT auctionid
+                          from bid
+                          where bidderid = '{$_SESSION['id']}'
+                        )
+                        GROUP BY itemCategory";
+
+            $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
+            $result1 = mysqli_query($connection, $query1) or die('Error making Database query');
+            $userCategories = array();
+
+            while($row = mysqli_fetch_array($result1)){
+                $userCategories[$row['itemCategory']] = $row['TOTAL'];
+            }
+            $userWeights = array();
+            $sum = array_sum($userCategories);
+            foreach ($userCategories as $key => $value) {
+                $userWeights[$key] = $value/$sum;
+            }
+            $chosenCategories = "";
+            foreach ($userWeights as $key => $value) {
+                $chosenCategories = $chosenCategories . "(itemCategory = '$key' AND status = 'open') OR ";
+            }
+            $chosenCategories = substr($chosenCategories,0,strlen($chosenCategories)-3);
+
+              $query2 = "SELECT  b.auctionid, count(DISTINCT b.bidderid) AS numBidders, a.itemCategory
+                    FROM bid b, auction a
+                    WHERE auctionid IN(
+                      SELECT itemid FROM auction 
+                      WHERE $chosenCategories
+                    )
+                    GROUP BY auctionid";
+
+            $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
+            $result2 = mysqli_query($connection, $query2) or die('Error making Database query');
+            $totalBidders = array();
+            while($row = mysqli_fetch_array($result2)){
+                $totalBidders[] = array("AuctionID" => $row['auctionid'], "NumBidders" => $row['numBidders'], "ItemCategory" => $row['itemCategory'], "TotalScore" => 0) ;
+            }
+
+
+            for($x = 0; $x< sizeof($totalBidders); $x++) {
+                $totalBidders[$x]['TotalScore'] = $userWeights[$totalBidders[$x]['ItemCategory']] * $totalBidders[$x]['NumBidders'];
+            }
+
+
+            foreach ($totalBidders as $key => $row) {
+                $TotalScore[$key]  = $row['TotalScore'];
+            }
+            array_multisort($TotalScore, SORT_DESC, $totalBidders);
+
+
+
+            for($x = 0; $x< sizeof($totalBidders); $x++) {
+
+                $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
+                $query3 = "SELECT * FROM Auction WHERE itemid = {$totalBidders[$x]['AuctionID']};";
+                $result3 = mysqli_query($connection, $query) or die('Error making Database query');
+                $row = mysqli_fetch_array($result3);
+                $endDate = $row['endDate'];
+                $nowDate = date("Y-m-d");
+                $diff = floor((strtotime($endDate) - strtotime($nowDate))/(60*60*24));
+                echo "
+                    <div class=\"col-lg-6 col-md-6 mb-6\">
+                        <div class=\"card\">
+                            <div class='row'>
+                                <div class='imageBox col-md-6'>                 
+                                   <img class=\"card-img-top\" style=\"max-height:100%\" src=\"/UCLDatabases/app/resources/{$row['id']}/{$row['itemName']}/image1.png\" alt=\"\"></a>
+                                </div>
+                                
+                                <div class='col-md-6'>
+                                    <div class=\"card-body\">
+                                        <h4 class=\"card-title\">
+                                            <form action='../handlers/selectItemBuyer.php' method='post'>
+                                                <input type='hidden' name='item' value='{$row['itemid']}'>
+                                                <button class='btn btn-link' style='font-size: 24px;'>{$row['itemName']}</button>
+                                            </form> 
+                                          
+                                        </h4>
+                                        <h5>£{$row['currentPrice']}</h5>
+                                        
+                                        <p>Days Remaining: $diff </p>
+                                        <p >End Time: {$row['endTime']}</p>
+                                        <p> Category: {$row['itemCategory']}</p>
+                                        <p> Description: $description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+            }
+
+
 
             ?>
 
