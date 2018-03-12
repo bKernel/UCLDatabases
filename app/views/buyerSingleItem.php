@@ -46,6 +46,9 @@
 
                     $minPrice = $row['currentPrice'] + 1;
 
+                    $update = "UPDATE auction SET traffic = ".$traffic." + 1 WHERE itemid = '{$_SESSION['selectedItemBuyer']}'";
+                    $updateresult= mysqli_query($connection, $update) or die('Error making Database update');
+
                     echo "
                     
                     <div class=\"details col-md-6\">

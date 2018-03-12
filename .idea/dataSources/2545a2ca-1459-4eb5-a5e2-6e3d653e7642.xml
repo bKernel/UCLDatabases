@@ -915,276 +915,387 @@
     <table id="230" parent="2" name="bid">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="231" parent="2" name="results">
+    <table id="231" parent="2" name="feedback">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="232" parent="2" name="user">
+    <table id="232" parent="2" name="results">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="233" parent="229" name="id">
+    <table id="233" parent="2" name="sellerfeedback">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="234" parent="2" name="user">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="235" parent="2" name="watchlist">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="236" parent="229" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="229" name="itemid">
+    <column id="237" parent="229" name="itemid">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="229" name="itemName">
+    <column id="238" parent="229" name="itemName">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="229" name="endTime">
+    <column id="239" parent="229" name="endTime">
       <Position>4</Position>
       <DataType>time|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="229" name="endDate">
+    <column id="240" parent="229" name="endDate">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="238" parent="229" name="reservePrice">
+    <column id="241" parent="229" name="reservePrice">
       <Position>6</Position>
       <DataType>double|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="229" name="startingPrice">
+    <column id="242" parent="229" name="startingPrice">
       <Position>7</Position>
       <DataType>double|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="229" name="currentPrice">
+    <column id="243" parent="229" name="currentPrice">
       <Position>8</Position>
       <DataType>double|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="229" name="itemDescription">
+    <column id="244" parent="229" name="itemDescription">
       <Position>9</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="229" name="itemCondition">
+    <column id="245" parent="229" name="itemCondition">
       <Position>10</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="229" name="itemCategory">
+    <column id="246" parent="229" name="itemCategory">
       <Position>11</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="229" name="itemPicture1">
+    <column id="247" parent="229" name="itemPicture1">
       <Position>12</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="229" name="status">
+    <column id="248" parent="229" name="status">
       <Position>13</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="246" parent="229" name="itemid">
+    <column id="249" parent="229" name="traffic">
+      <Position>14</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="250" parent="229" name="itemid">
       <ColNames>itemid</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="247" parent="229" name="PRIMARY">
+    <key id="251" parent="229" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>itemid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="248" parent="229" name="itemid">
+    <key id="252" parent="229" name="itemid">
       <ColNames>itemid</ColNames>
       <UnderlyingIndexName>itemid</UnderlyingIndexName>
     </key>
-    <column id="249" parent="230" name="id">
+    <column id="253" parent="230" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="230" name="auctionid">
+    <column id="254" parent="230" name="auctionid">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="230" name="bidamount">
+    <column id="255" parent="230" name="bidamount">
       <Position>3</Position>
       <DataType>double|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="230" name="time">
+    <column id="256" parent="230" name="time">
       <Position>4</Position>
       <DataType>time|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="230" name="date">
+    <column id="257" parent="230" name="date">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="230" name="bidderid">
+    <column id="258" parent="230" name="bidderid">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="255" parent="230" name="PRIMARY">
+    <column id="259" parent="230" name="traffic">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="260" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="256" parent="231" name="id">
+    <column id="261" parent="231" name="userID">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="262" parent="231" name="auctionId">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="263" parent="231" name="feedback">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="264" parent="231" name="rating">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="265" parent="231" name="criticId">
+      <Position>5</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="266" parent="231" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="267" parent="232" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="231" name="auctionid">
+    <column id="268" parent="232" name="auctionid">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="231" name="winningbid">
+    <column id="269" parent="232" name="winningbid">
       <Position>3</Position>
       <DataType>double|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="231" name="buyerid">
+    <column id="270" parent="232" name="buyerid">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="231" name="sellerid">
+    <column id="271" parent="232" name="sellerid">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="261" parent="231" name="PRIMARY">
+    <column id="272" parent="232" name="ratingfromseller">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="273" parent="232" name="feedbackfromseller">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="274" parent="232" name="feedbackfrombuyer">
+      <Position>8</Position>
+      <DataType>text|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="275" parent="232" name="ratingfrombuyer">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="276" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="262" parent="232" name="id">
+    <column id="277" parent="233" name="rating">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="278" parent="233" name="feedback">
+      <Position>2</Position>
+      <DataType>multilinestring|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="279" parent="233" name="recipientid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="233" name="giverid">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="281" parent="234" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="232" name="username">
+    <column id="282" parent="234" name="username">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="232" name="firstName">
+    <column id="283" parent="234" name="firstName">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="232" name="surname">
+    <column id="284" parent="234" name="surname">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="232" name="address1">
+    <column id="285" parent="234" name="address1">
       <Position>5</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="232" name="address2">
+    <column id="286" parent="234" name="address2">
       <Position>6</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="232" name="postcode">
+    <column id="287" parent="234" name="postcode">
       <Position>7</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="232" name="city">
+    <column id="288" parent="234" name="city">
       <Position>8</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="232" name="country">
+    <column id="289" parent="234" name="country">
       <Position>9</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="232" name="email">
+    <column id="290" parent="234" name="email">
       <Position>10</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="232" name="phone">
+    <column id="291" parent="234" name="phone">
       <Position>11</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="232" name="DoB">
+    <column id="292" parent="234" name="DoB">
       <Position>12</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="232" name="userRating">
+    <column id="293" parent="234" name="userRating">
       <Position>13</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="232" name="userType">
+    <column id="294" parent="234" name="userType">
       <Position>14</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="232" name="pw">
+    <column id="295" parent="234" name="pw">
       <Position>15</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="277" parent="232" name="PRIMARY">
+    <key id="296" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="297" parent="235" name="userId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="298" parent="235" name="auctionId">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="299" parent="235" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>
