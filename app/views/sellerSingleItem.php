@@ -62,7 +62,7 @@ $ratingrow = mysqli_fetch_array($ratingresult);
                         <button>Rate buyer</button>
                     </form>";
                     } ?>
-                    
+
                 </div>
             </div>
         </div>
