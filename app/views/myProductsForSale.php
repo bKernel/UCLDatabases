@@ -32,8 +32,8 @@
                         <button class="btn" id="newProduct">Enlist new Product</button>
                     </a>
 
-                    <a href="enlist.php">
-                        <button class="btn" id="newProduct">Send Report</button>
+                    <a href="sellingActivity.php">
+                        <button class="btn" id="newProduct">Your Selling Activity</button>
                     </a>
 
                 </div>
