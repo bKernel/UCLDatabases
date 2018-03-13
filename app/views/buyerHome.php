@@ -166,7 +166,7 @@
                     $description = substr($row['itemDescription'], 0, 20);
                 }
                 echo "
-                    <div class=\"col-lg-6 col-md-6 mb-6\">
+                    <div class=\"col-lg-12 col-md-12 mb-6\">
                         <div class=\"card\">
                             <div class='row'>
                                 <div class='imageBox col-md-6'>                 
@@ -178,7 +178,7 @@
                                         <h4 class=\"card-title\">
                                             <form action='../handlers/selectItemBuyer.php' method='post'>
                                                 <input type='hidden' name='item' value='{$row['itemid']}'>
-                                                <button class='btn btn-link' style='font-size: 24px;'>{$row['itemName']}</button>
+                                                <button style='word-wrap: break-word' class='btn btn-link' style='font-size: 24px;'>{$row['itemName']}</button>
                                             </form> 
                                           
                                         </h4>
