@@ -32,8 +32,8 @@
                         <button class="btn" id="newProduct">Enlist new Product</button>
                     </a>
 
-                    <a href="enlist.php">
-                        <button class="btn" id="newProduct">Send Report</button>
+                    <a href="sellingActivity.php">
+                        <button class="btn" id="newProduct">Your Selling Activity</button>
                     </a>
 
                 </div>
@@ -46,6 +46,12 @@
                 $result = mysqli_query($connection, $query) or die('Error making Database query');
                 echo "<div id=\"listings\" class=\"row\">";
                 while($row = mysqli_fetch_array($result)){
+                    if(strlen($row['itemDescription']) >20) {
+                        $description = substr($row['itemDescription'], 0, 20) . "...";
+                    }
+                    else{
+                        $description = substr($row['itemDescription'], 0, 20);
+                    }
                     echo "
                     <div class=\"col-lg-6 col-md-6 mb-6\">
                         <div class=\"card\">
@@ -61,7 +67,7 @@
                                         </h4>
                                         <h5>£{$row['currentPrice']}</h5>
                                         <h6>{$row['itemCategory']}</h6>
-                                        <p class=\"card-text\">{$row['itemDescription']}</p>
+                                        <p class=\"card-text\">{$description}</p>
                                         <form action='../handlers/selectItem.php' method='post'>
                                             <input type='hidden' name='imagesrc' value='../resources/{$_SESSION['id']}/{$row['itemName']}/image1.png'>                                        
                                             <input type='hidden' name='imagesrc2' value='../resources/{$_SESSION['id']}/{$row['itemName']}/image2.png'>

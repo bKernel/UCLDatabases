@@ -24,7 +24,7 @@
         <div class = "col-sm-4"></div>
         <div class = "col-sm-4">
             <div class="main-login main-center">
-                <form class="" method="post" action="../handlers/addNewUser.php">
+                <form class="" method="post" action="../handlers/addNewUser.php" onsubmit="return validateForm()">
 
                     <div class="form-group">
                         <label for="username" class="cols-sm-2 control-label">Username</label>
@@ -34,6 +34,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <?php '<span style="color:red;">This Username is already taken</span>'; ?>
 
                     <div class="form-group">
                         <label for="firstName" class="cols-sm-2 control-label">First Name</label>
@@ -126,9 +128,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="select" class="cols-sm-2 control-label">User Type</label>
+                        <label for="userType" class="cols-sm-2 control-label">User Type</label>
                         <div class="cols-sm-10">
-                            <select name="userType">
+                            <select id="userType" name="userType">
                                     <option value="buyer">Buyer</option>
                                     <option value="seller">Seller</option>
                             </select>

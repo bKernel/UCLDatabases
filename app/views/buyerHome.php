@@ -166,8 +166,8 @@
                     $description = substr($row['itemDescription'], 0, 20);
                 }
                 echo "
-                    <div class=\"col-lg-6 col-md-6 mb-6\">
-                        <div class=\"card\">
+                    <div class=\"col-lg-12 col-md-12 mb-6\">
+                        <div class=\"box\">
                             <div class='row'>
                                 <div class='imageBox col-md-6'>                 
                                    <img class=\"card-img-top\" style=\"max-height:100%\" src=\"/UCLDatabases/app/resources/{$row['id']}/{$row['itemName']}/image1.png\" alt=\"\"></a>
@@ -178,21 +178,22 @@
                                         <h4 class=\"card-title\">
                                             <form action='../handlers/selectItemBuyer.php' method='post'>
                                                 <input type='hidden' name='item' value='{$row['itemid']}'>
-                                                <button class='btn btn-link' style='font-size: 24px;'>{$row['itemName']}</button>
+                                                <button class='btn btn-link' style='font-size: 20px; padding: 0'>{$row['itemName']}</button>
                                             </form> 
                                           
                                         </h4>
                                         <h5>£{$row['currentPrice']}</h5>
                                         
                                         <p>Days Remaining: $diff </p>
-                                        <p >End Time: {$row['endTime']}</p>
+                                        <p>End Time: {$row['endTime']}</p>
                                         <p> Category: {$row['itemCategory']}</p>
                                         <p> Description: $description</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>";
+                    </div>
+                    ";
 
             }
             echo "<h6> You might be interested in... </h6>
