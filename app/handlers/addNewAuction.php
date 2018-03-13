@@ -72,7 +72,7 @@ function printItem($item)
 function saveToDatabase($item)
 {
     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
-    $query = "INSERT INTO auctiondb.auction (id, itemName, endDate, endTime, reservePrice, startingPrice, currentPrice, itemDescription, itemCondition, itemCategory, status)".
+    $query = "INSERT INTO auctiondb.Auction (id, itemName, endDate, endTime, reservePrice, startingPrice, currentPrice, itemDescription, itemCondition, itemCategory, status)".
         "VALUES ('${item['id']}','${item['itemName']}','${item['endDate']}','${item['endTime']}','${item['reservePrice']}','${item['startingPrice']}','${item['currentPrice']}','${item['itemDescription']}','${item['itemCondition']}','${item['itemCategory']}','${item['status']}')";
     $result = mysqli_query($connection, $query) or die('Error making saveToDatabase query');
     mysqli_close($connection);
