@@ -50,7 +50,7 @@
 
                     <input type="radio" id="ratingradio" name="ratingradio" value="1">   1
                     <br>
-                    <input type="radio" id="ratingradio" name="ratingradio" value="2" >   2
+                    <input type="radio" id="ratingradio" name="ratingradio" value="2" >  2
                     <br>
                     <input type="radio" id="ratingradio" name="ratingradio" value="3">   3
                     <br>
@@ -79,7 +79,10 @@
                             <button>Send rating</button>
                         </form>                    </div>
 
-
+                    <div>
+                        <br>
+                        <p>*** Please note that your feedback will only count if the buyer has won your product. Thank you. ***</p>
+                    </div>
 
 
 

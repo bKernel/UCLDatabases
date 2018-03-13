@@ -19,11 +19,11 @@
 <body>
 
 <?php $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
-$query = "SELECT 'username' FROM user WHERE ('user.id' = (SELECT bidderid FROM bid WHERE bidamount = ({$_SESSION['currentPrice']} AND auctionid = {$_SESSION['itemid']})) OR id = (SELECT buyerid FROM results WHERE winningbid = {$_SESSION['currentPrice']}))";
+$query = "SELECT username FROM user WHERE (user.id = (SELECT bidderid FROM bid WHERE bidamount = ({$_SESSION['currentPrice']} AND auctionid = {$_SESSION['itemid']})) OR id = (SELECT buyerid FROM results WHERE winningbid = {$_SESSION['currentPrice']}))";
 $result = mysqli_query($connection, $query) or die('Error making Database query');
 $row = mysqli_fetch_array($result);
 
-$ratingquery = "SELECT AVG(ratingfromseller) FROM results WHERE buyerid = {$_SESSION['id']}";
+$ratingquery = "SELECT AVG(ratingfromseller) FROM results WHERE buyerid = (SELECT bidderid FROM bid WHERE bidamount = ({$_SESSION['currentPrice']} AND auctionid = {$_SESSION['itemid']})) OR id = (SELECT buyerid FROM results WHERE winningbid = {$_SESSION['currentPrice']})";
 $ratingresult = mysqli_query($connection, $ratingquery) or die('Error making Database query');
 $ratingrow = mysqli_fetch_array($ratingresult);
 
@@ -46,7 +46,8 @@ $ratingrow = mysqli_fetch_array($ratingresult);
                     echo "<h4>Category: {$_SESSION['itemCategory']}</h4>";
                     echo "<h4>Condition: {$_SESSION['itemCondition']}</h4>";
                     echo "<h4>Current Bid: <span>£{$_SESSION['currentPrice']}</span></h4>";
-                    echo "<h4>(bid made by <span>{$row[0]}</span>, rating:  <span>{$ratingrow[0]}</span> / 5)</h4>";
+                    if ('{$row[0]}' == "" AND '{$ratingrow[0]}' == "") {
+                    echo "<h4>(bid made by <span>{$row[0]}</span>, average rating:  <span>{$ratingrow[0]}</span></h4>";}
                     echo "<h4>Reserve Price: <span>£{$_SESSION['reservePrice']}</span></h4>";
                     echo "<h4>End Time: <span>{$_SESSION['endTime']}</span></h4>";
                     echo "<h4>End Date: <span>{$endDate}</span></h4>";
@@ -56,10 +57,12 @@ $ratingrow = mysqli_fetch_array($ratingresult);
                         <button>Edit</button>
                     </form>
 
-                    <form action="sellerFeedback.php">
+                    <?php if ('{$row[0]}' == "" AND '{$ratingrow[0]}' == "") {
+                        "<form action='sellerFeedback.php'>
                         <button>Rate buyer</button>
-                    </form>
-
+                    </form>";
+                    } ?>
+                    
                 </div>
             </div>
         </div>
