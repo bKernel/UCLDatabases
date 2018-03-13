@@ -52,7 +52,7 @@
                     </form>
                 </div>
                 <div>
-                    <?php echo $_SESSION['message'] ?>
+                    <?php echo "{$_SESSION['message'] }"?>
                 </div>
                 <div class="panel-footer">
                     Not Registered? <a href="registration.php">Register here</a>

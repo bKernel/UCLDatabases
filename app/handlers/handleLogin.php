@@ -44,7 +44,7 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
             header('Location:../views/myProductsForSale.php');
         } elseif ($_SESSION['userType'] === 'admin'){
             //require 'adminHome.php';
-            header('Location:../views/manageAuctions.php');
+            header('Location:../views/adminHome.php');
         }
     } else {
         $_SESSION['message'] = "You have entered wrong password, try again!";
