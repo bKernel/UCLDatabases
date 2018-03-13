@@ -48,7 +48,7 @@
 
                     echo "
                     
-                    <div class=\"details col-md-6\">
+                    <div class=\"details col-md-12\">
                     <h3 class='product-title'>{$row['itemName']}</h3>
                     <img src=\"/UCLDatabases/app/resources/{$row['id']}/{$row['itemName']}/image1.png\"/>
                     <h4>Item Category: {$row['itemCategory']}</h4>
