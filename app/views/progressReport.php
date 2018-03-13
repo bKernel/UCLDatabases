@@ -17,39 +17,9 @@ $errors = [];
 
 //if(isset($_POST['email'])) {
 
-$connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
-$query = "SELECT COUNT(auctionid) FROM bid WHERE auctionid = {$_SESSION['itemid']}";
-$result = mysqli_query($connection, $query) or die('Error making Database query');
-$row = mysqli_fetch_array($result);
-
-$trafficquery = "SELECT traffic FROM auction WHERE itemid = {$_SESSION['itemid']}";
-$trafficresult = mysqli_query($connection, $trafficquery) or die('Error making Database query');
-$trafficrow = mysqli_fetch_array($trafficresult);
-
-if ($row['totalbids'] == 0 AND $trafficrow['traffic'] == 0) {
     $fields = [
-        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => 'no bids yet', 'traffic' => 'No traffic yet'
+        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType']
     ];
-}
-else if ($row['totalbids'] == 0 AND $trafficrow['traffic'] != 0) {
-    $fields = [
-        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => 'no bids yet', 'traffic' => $trafficrow['traffic']
-    ];
-
-}
-
-else if ($row['totalbids'] != 0 AND $trafficrow['traffic'] == 0) {
-    $fields = [
-        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => $row['totalbids'], 'traffic' => 'No traffic yet'
-    ];
-
-}
-
-else {
-    $fields = [
-        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => $row['totalbids'], 'traffic' => $trafficrow['traffic']
-    ];
-}
 
     foreach($fields as $field => $data) {
         if(empty($data)) {
@@ -83,7 +53,7 @@ else {
         $m->isHTML(true);
 
         $m->Subject = 'Your Auction Progress Report';
-        $m->Body = '<p>Dear ' . $fields['username'] . ',</p> <p>Thanks for using our auction website! Our mission is to be a platform where you can buy and sell any item for fair prices. You are registered as a ' . $fields['userType'] . ' and here is your auction progress report: </p> <p>Item: ' . $_SESSION['itemName'] .'</p> <p>Category: ' . $_SESSION['itemCategory'] . '</p> <p>Condition: ' . $_SESSION['itemCondition'] . '</p> <p>Current bid: ' . $_SESSION['currentPrice'] .' </p> <p>Reserve Price: ' . $_SESSION['reservePrice'] . '</p> <p>End date: ' . date('d/m/Y', strtotime($_SESSION['endDate'])) . '</p> <p>End time: ' . $_SESSION['endTime'] . '</p> <p>Number of bids: ' . $fields['auctionid'] .' </p> <p>Number of views/traffic: ' . $fields['traffic'] .' </p> <p>Thank you very much!</p> <p>Regards,</p> <p>UCL DB Project Team</p>';
+        $m->Body = '<p>Dear ' . $fields['username'] . ',</p> <p>Thanks for using our auction website! Our mission is to be a platform where you can buy and sell any item for fair prices. You are registered as a ' . $fields['userType'] . ' and here is your auction progress report: </p> <p>Item: ' . $_SESSION['itemName'] .'</p> <p>Category: ' . $_SESSION['itemCategory'] . '</p> <p>Condition: ' . $_SESSION['itemCondition'] . '</p> <p>Current bid: ' . $_SESSION['currentPrice'] .' </p> <p>Reserve Price: ' . $_SESSION['reservePrice'] . '</p> <p>End date: ' . date('d/m/Y', strtotime($_SESSION['endDate'])) . '</p> <p>End time: ' . $_SESSION['endTime'] . '</p> <p>Number of bids: </p> <p>Number of views/traffic: </p> <p>Thank you very much!</p> <p>Regards,</p> <p>UCL DB Project Team</p>';
         $m->AltBody = 'Something went wrong. Try again.';
 
         if($m->send()) {
