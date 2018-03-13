@@ -6,6 +6,15 @@ require 'database.php';
 function isDataValid()
 {
     $errorMessage = null;
+    $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
+    $query = "SELECT username from auctiondb.user";
+    $result = mysqli_query($connection, $query) or die('Error making saveToDatabase query');
+    mysqli_close($connection);
+    while($row = mysqli_fetch_array($result)) {
+        if($_POST['username']===$row['username']){
+            $errorMessage = 'This username is already taken';
+        }
+    }
     if (!isset($_POST['username']) or trim($_POST['username']) == '')
         $errorMessage = 'You must enter your username';
     else if (!isset($_POST['firstName']) or trim($_POST['firstName']) == '')
@@ -32,9 +41,10 @@ function isDataValid()
         $errorMessage = 'You must enter your password';
     if ($errorMessage !== null)
     {
-        echo <<<EOM
-          <p>Error: $errorMessage</p>
-EOM;
+        $_SESSION['errorMessage'] = $errorMessage;
+//        echo <<<EOM
+//          <p>Error: $errorMessage</p>
+//EOM;
         return False;
     }
     return True;
@@ -96,8 +106,10 @@ if(isDataValid()){
     if($newUser['userType']=== 'admin'){
         header("location: ../views/manageAdmins.php");
     } else {
-        header("location: ../views/login.php");
+        require '../views/login.php';
     }
    // header('Location:login.php');
+} else {
+    require '../views/registration.php';
 }
 ?>
