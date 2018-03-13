@@ -26,9 +26,30 @@ $trafficquery = "SELECT traffic FROM auction WHERE itemid = {$_SESSION['itemid']
 $trafficresult = mysqli_query($connection, $trafficquery) or die('Error making Database query');
 $trafficrow = mysqli_fetch_array($trafficresult);
 
+if ($row['totalbids'] == 0 AND $trafficrow['traffic'] == 0) {
     $fields = [
-        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => $row[0], 'traffic' => $trafficrow[0]
+        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => 'no bids yet', 'traffic' => 'No traffic yet'
     ];
+}
+else if ($row['totalbids'] == 0 AND $trafficrow['traffic'] != 0) {
+    $fields = [
+        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => 'no bids yet', 'traffic' => $trafficrow['traffic']
+    ];
+
+}
+
+else if ($row['totalbids'] != 0 AND $trafficrow['traffic'] == 0) {
+    $fields = [
+        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => $row['totalbids'], 'traffic' => 'No traffic yet'
+    ];
+
+}
+
+else {
+    $fields = [
+        'email'=> $_SESSION['email'], 'username' =>  $_SESSION['username'], 'userType' => $_SESSION['userType'], 'auctionid' => $row['totalbids'], 'traffic' => $trafficrow['traffic']
+    ];
+}
 
     foreach($fields as $field => $data) {
         if(empty($data)) {
