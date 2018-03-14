@@ -110,6 +110,7 @@
                     }
                     ?>
 
+
                     <?php echo"
                     <div id='bid-column' class='col-lg-12'>
                         <div class='form-group'>
@@ -135,8 +136,14 @@
                             </div>
 
 
+
+
+
                         </div>
                         <div class="container-fluid">
+                            <br>
+                            <br>
+                            <br>
                             <br>
                             <br>
                             <hr>
@@ -144,6 +151,33 @@
 
                             echo "<h3>Item Description</h3>";
                             echo "{$row['itemDescription']}";
+
+                            ?>
+                            <br>
+                            <br>
+
+                            <div class="row">
+                            <div class="col-sm-6">
+                                <label for="username" class="cols-sm-2 control-label"><b>Average Seller Rating:</b></label>
+                            </div>
+
+                            <?php $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
+                            $sellerquery = "SELECT AVG(ratingfrombuyer), COUNT(ratingfrombuyer) FROM results WHERE sellerid = '{$row['id']}'";
+                            $result = mysqli_query($connection, $sellerquery) or die('Error making Database query');
+                            $row = mysqli_fetch_array($result);
+
+                            ?>
+
+                            <div class="col-sm-6">
+                                <label type="text" id="username" ><b><?php echo round($row[0],3) . ' / 5 (out of ' . $row[1] . ' ratings)'?></b></label>
+                            </div>
+                            </div>
+
+                            <?php
+
+
+
+
                             echo"
                             
                              <form name='end' id= 'end' method='post' action='../handlers/endAuction.php'>
