@@ -29,12 +29,12 @@
     <hr>
     <div class="panel-group">
         <div class="panel panel-default">
-            <h3 class="panel-heading panel-primary">My Bidding History</h3>
+            <h3 class="panel-heading panel-primary">My Recent Bids</h3>
             <div class="panel-body">
                 <?php
 
                 $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
-                $query1 = "SELECT auction.itemName, bid.auctionid, bid.bidamount, bid.time, bid.date FROM auction, bid WHERE auction.itemid= bid.auctionid AND bid.bidderid = '{$_SESSION['id']}';";
+                $query1 = "SELECT auction.itemName, bid.auctionid, bid.bidamount, bid.time, bid.date FROM auction, bid WHERE auction.itemid= bid.auctionid AND bid.bidderid = '{$_SESSION['id']}' ORDER BY bid.id DESC LIMIT 5";
                 $result1 = mysqli_query($connection, $query1) or die('Error making Database query');
                 $i=1;
                 while($row=mysqli_fetch_array($result1)){
