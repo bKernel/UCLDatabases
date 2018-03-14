@@ -209,7 +209,7 @@
                         GROUP BY itemCategory";
 
             $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
-            $result1 = mysqli_query($connection, $query1) or die('Error making Database query');
+            $result1 = mysqli_query($connection, $query1) or die('Error making Database query 0');
             $userCategories = array();
 
             while($row = mysqli_fetch_array($result1)){
@@ -235,7 +235,7 @@
                     GROUP BY auctionid";
 
             $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
-            $result2 = mysqli_query($connection, $query2) or die('Error making Database query');
+            $result2 = mysqli_query($connection, $query2) or die('Please bid on some items to receive reccomendations.');
             $totalBidders = array();
             while($row = mysqli_fetch_array($result2)){
                 $totalBidders[] = array("AuctionID" => $row['auctionid'], "NumBidders" => $row['numBidders'], "ItemCategory" => $row['itemCategory'], "TotalScore" => 0) ;
@@ -259,7 +259,7 @@
 
                 $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
                 $query3 = "SELECT * FROM Auction WHERE itemid = '{$totalBidders[$x]['AuctionID']}';";
-                $result3 = mysqli_query($connection, $query3) or die('Error making Database query');
+                $result3 = mysqli_query($connection, $query3) or die('Error making Database query 2');
                 $row3 = mysqli_fetch_array($result3);
                 $endDate3 = $row3['endDate'];
                 $nowDate3 = date("Y-m-d");

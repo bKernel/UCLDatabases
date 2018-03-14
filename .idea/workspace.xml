@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6ca9425-53da-47c8-b254-ecf4e5ee7908" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/handlers/sendOutbidInfo.php" afterPath="$PROJECT_DIR$/app/handlers/sendOutbidInfo.php" />
-      <change beforePath="$PROJECT_DIR$/app/views/manageAuctions.php" afterPath="$PROJECT_DIR$/app/views/manageAuctions.php" />
-      <change beforePath="$PROJECT_DIR$/app/views/myOrders.php" afterPath="$PROJECT_DIR$/app/views/myOrders.php" />
-      <change beforePath="$PROJECT_DIR$/app/views/progressReport.php" afterPath="$PROJECT_DIR$/app/views/progressReport.php" />
+      <change beforePath="$PROJECT_DIR$/app/views/buyerHome.php" afterPath="$PROJECT_DIR$/app/views/buyerHome.php" />
     </list>
     <ignored path="$PROJECT_DIR$/app/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/app/vendor/phpmailer/phpmailer/" />
@@ -51,40 +47,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="handlesellerFeedback.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/handlers/handlesellerFeedback.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding>
-                <marker date="1521050625000" expanded="true" signature="331:388" ph="UPDATE auctiondb.results... " />
-                <marker date="1521050625000" expanded="true" signature="331:389" ph="UPDATE auctiondb.results... " />
-                <marker date="1521050625000" expanded="true" signature="331:391" ph="UPDATE auctiondb.results... " />
-                <marker date="1521050625000" expanded="true" signature="331:413" ph="UPDATE auctiondb.results... " />
-                <marker date="1521050625000" expanded="true" signature="331:559" ph="UPDATE auctiondb.results... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myOrders.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/myOrders.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="55" column="34" lean-forward="false" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
-              <folding>
-                <marker date="1521050918000" expanded="true" signature="1697:1863" ph="SELECT aucti... auction" />
-                <marker date="1521050918000" expanded="true" signature="1697:1892" ph="SELECT aucti... auction" />
-                <marker date="1521050918000" expanded="true" signature="2548:2710" ph="SELECT resul... results" />
-                <marker date="1521050918000" expanded="true" signature="3276:3447" ph="SELECT watch... watchlist" />
-                <marker date="1521050918000" expanded="true" signature="4287:4469" ph="SELECT resul... results" />
-                <marker date="1521050918000" expanded="true" signature="5522:5693" ph="SELECT buyer... results" />
-                <marker date="1521050918000" expanded="true" signature="6148:6229" ph="SELECT buyer... results" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="manageAuctions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/manageAuctions.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,6 +72,15 @@
       </file>
       <file leaf-file-name="user" pinned="false" current-in-tab="false">
         <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bid" pinned="false" current-in-tab="false">
+        <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.bid">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -143,7 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="progressReport.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="progressReport.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/progressReport.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="134">
@@ -151,6 +122,50 @@
               <folding>
                 <marker date="1521052142000" expanded="true" signature="431:482" ph="SELECT COUNT... bid" />
                 <marker date="1521052142000" expanded="true" signature="643:686" ph="SELECT traff... auction" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buyerHome.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/buyerHome.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="239" column="55" lean-forward="true" selection-start-line="239" selection-start-column="55" selection-end-line="239" selection-end-column="55" />
+              <folding>
+                <marker date="1521052554000" expanded="true" signature="6783:6836" ph="SELECT * FRO... Auction" />
+                <marker date="1521052554000" expanded="true" signature="6918:7022" ph="SELECT * FRO... Auction" />
+                <marker date="1521052554000" expanded="true" signature="7170:7265" ph="SELECT * FRO... Auction" />
+                <marker date="1521052554000" expanded="true" signature="7359:7507" ph="SELECT * FRO... Auction" />
+                <marker date="1521052554000" expanded="true" signature="7702:7928" ph="..." />
+                <marker date="1521052554000" expanded="false" signature="7860:7871" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="8922:10615" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="8966:10588" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="9012:10557" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="9076:9314" ph="..." />
+                <marker date="1521052554000" expanded="false" signature="9166:9181" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="9402:10522" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="9464:10483" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="9530:10026" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="9636:9936" ph="..." />
+                <marker date="1521052554000" expanded="false" signature="9829:9856" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="10900:11230" ph="select itemC... auction" />
+                <marker date="1521052554000" expanded="true" signature="12246:12562" ph="SELECT b.auc... bid" />
+                <marker date="1521052554000" expanded="true" signature="12428:12484" ph="SELECT itemi... auction" />
+                <marker date="1521052554000" expanded="true" signature="13858:13895" ph="SELECT * FRO... Auction" />
+                <marker date="1521052554000" expanded="true" signature="13858:13896" ph="SELECT * FRO... Auction" />
+                <marker date="1521052554000" expanded="true" signature="13858:13929" ph="SELECT * FRO... Auction" />
+                <marker date="1521052554000" expanded="true" signature="14722:16413" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="14877:15115" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="14877:16355" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="14877:16386" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="14877:16413" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="14965:14980" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="15203:16320" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="15265:16281" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="15331:15818" ph="..." />
+                <marker date="1521052554000" expanded="true" signature="15437:15728" ph="..." />
+                <marker date="1521052554000" expanded="false" signature="15631:15647" ph="..." />
               </folding>
             </state>
           </provider>
@@ -239,7 +254,6 @@
         <option value="$PROJECT_DIR$/app/handlers/addNewAuction.php" />
         <option value="$PROJECT_DIR$/app/views/sellingActivity.php" />
         <option value="$PROJECT_DIR$/app/handlers/buyerfeedback.php" />
-        <option value="$PROJECT_DIR$/app/views/buyerHome.php" />
         <option value="$PROJECT_DIR$/app/handlers/endAuction.php" />
         <option value="$PROJECT_DIR$/app/handlers/makeBid.php" />
         <option value="$PROJECT_DIR$/app/views/buyerSingleItem.php" />
@@ -250,6 +264,7 @@
         <option value="$PROJECT_DIR$/app/views/manageAuctions.php" />
         <option value="$PROJECT_DIR$/app/handlers/sendOutbidInfo.php" />
         <option value="$PROJECT_DIR$/app/views/progressReport.php" />
+        <option value="$PROJECT_DIR$/app/views/buyerHome.php" />
       </list>
     </option>
   </component>
@@ -363,12 +378,12 @@
       <updated>1520954450156</updated>
       <workItem from="1520954453005" duration="1236000" />
       <workItem from="1521051693329" duration="137000" />
-      <workItem from="1521051847305" duration="244000" />
+      <workItem from="1521051847305" duration="655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18626000" />
+    <option name="totallyTimeSpent" value="19037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="23" width="1422" height="815" extended-state="0" />
@@ -456,6 +471,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="166" column="17" lean-forward="false" selection-start-line="161" selection-start-column="16" selection-end-line="166" selection-end-column="17" />
+          <folding>
+            <marker date="1521052554000" expanded="true" signature="6783:6836" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="6918:7022" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7170:7265" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7359:7507" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7702:7928" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="7860:7871" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="8922:10615" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="8966:10588" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9012:10557" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9076:9314" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="9166:9181" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9402:10522" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9464:10483" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9530:10026" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9636:9936" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="9829:9856" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="10900:11230" ph="select itemC... auction" />
+            <marker date="1521052554000" expanded="true" signature="12246:12562" ph="SELECT b.auc... bid" />
+            <marker date="1521052554000" expanded="true" signature="12428:12484" ph="SELECT itemi... auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13895" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13896" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13929" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="14722:16413" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:15115" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16355" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16386" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16413" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14965:14980" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15203:16320" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15265:16281" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15331:15818" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15437:15728" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="15631:15647" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -525,6 +575,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="166" column="17" lean-forward="false" selection-start-line="161" selection-start-column="16" selection-end-line="166" selection-end-column="17" />
+          <folding>
+            <marker date="1521052554000" expanded="true" signature="6783:6836" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="6918:7022" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7170:7265" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7359:7507" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7702:7928" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="7860:7871" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="8922:10615" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="8966:10588" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9012:10557" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9076:9314" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="9166:9181" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9402:10522" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9464:10483" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9530:10026" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9636:9936" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="9829:9856" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="10900:11230" ph="select itemC... auction" />
+            <marker date="1521052554000" expanded="true" signature="12246:12562" ph="SELECT b.auc... bid" />
+            <marker date="1521052554000" expanded="true" signature="12428:12484" ph="SELECT itemi... auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13895" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13896" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13929" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="14722:16413" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:15115" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16355" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16386" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16413" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14965:14980" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15203:16320" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15265:16281" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15331:15818" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15437:15728" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="15631:15647" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -646,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.bid">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/handlers/handleLogin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -727,13 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/buyerHome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="178" column="49" lean-forward="false" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -866,13 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/handlers/sendOutbidInfo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -894,6 +958,62 @@
           <folding>
             <marker date="1521052142000" expanded="true" signature="431:482" ph="SELECT COUNT... bid" />
             <marker date="1521052142000" expanded="true" signature="643:686" ph="SELECT traff... auction" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.bid">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/buyerHome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="239" column="55" lean-forward="true" selection-start-line="239" selection-start-column="55" selection-end-line="239" selection-end-column="55" />
+          <folding>
+            <marker date="1521052554000" expanded="true" signature="6783:6836" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="6918:7022" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7170:7265" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7359:7507" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="7702:7928" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="7860:7871" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="8922:10615" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="8966:10588" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9012:10557" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9076:9314" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="9166:9181" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9402:10522" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9464:10483" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9530:10026" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="9636:9936" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="9829:9856" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="10900:11230" ph="select itemC... auction" />
+            <marker date="1521052554000" expanded="true" signature="12246:12562" ph="SELECT b.auc... bid" />
+            <marker date="1521052554000" expanded="true" signature="12428:12484" ph="SELECT itemi... auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13895" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13896" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="13858:13929" ph="SELECT * FRO... Auction" />
+            <marker date="1521052554000" expanded="true" signature="14722:16413" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:15115" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16355" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16386" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14877:16413" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="14965:14980" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15203:16320" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15265:16281" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15331:15818" ph="..." />
+            <marker date="1521052554000" expanded="true" signature="15437:15728" ph="..." />
+            <marker date="1521052554000" expanded="false" signature="15631:15647" ph="..." />
           </folding>
         </state>
       </provider>
