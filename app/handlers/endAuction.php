@@ -59,7 +59,7 @@ function notifyWinner($details)
     $name = $row['firstName'] . " " . $row['surname'];
     $mail = new PHPMailer;
     $mail->isSMTP();
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
@@ -86,7 +86,7 @@ function notifySellerSuccessful($details)
     $name = $row['firstName'] . " " . $row['surname'];
     $mail = new PHPMailer;
     $mail->isSMTP();
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';

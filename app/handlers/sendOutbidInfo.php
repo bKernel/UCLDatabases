@@ -50,7 +50,7 @@ function checkuser($userid){
 date_default_timezone_set('UK');
 ignore_user_abort();//run backend
 set_time_limit(0);//cancel the limit of the script runtime
-$interval = 60*5;//run every period of time
+$interval = 60*60*24;//run every period of time
 do{
   $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
   $query = "SELECT DISTINCT id FROM User;";

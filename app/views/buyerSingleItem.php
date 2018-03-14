@@ -39,7 +39,7 @@
 
 
                     $row = mysqli_fetch_array($result);
-
+                    $_SESSION['selectedItemNameBuyer'] = $row['itemName'];
                     $endDate = $row['endDate'];
                     $endTime = $row['endTime'];
                     $dateTime = $endDate . " " . $endTime;
@@ -48,6 +48,7 @@
 
                     $update = "UPDATE auction SET traffic = ".$traffic." + 1 WHERE itemid = '{$_SESSION['selectedItemBuyer']}'";
                     $updateresult= mysqli_query($connection, $update) or die('Error making Database update');
+
 
                     echo "
                     
@@ -123,6 +124,7 @@
                             </div>
                             <div id='btn-column' class='col-sm-5'>
                                     <input type='hidden' name='currentPrice' value='$minPrice'>
+                                    <input type='hidden' name='itemName' value='{$_SESSION['selectedItemNameBuyer']}'>
                                     <input type='hidden' name='bidderid' value='{$_SESSION['id']}'>
                                     <input type='hidden' name='auctionid' value='{$row['itemid']}'>
                                     <button class='btn btn-default add-to-cart'>Make Bid</button>
