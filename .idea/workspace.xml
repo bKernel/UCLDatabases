@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6ca9425-53da-47c8-b254-ecf4e5ee7908" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/buyerSingleItem.php" afterPath="$PROJECT_DIR$/app/views/buyerSingleItem.php" />
+      <change beforePath="$PROJECT_DIR$/app/handlers/sendOutbidInfo.php" afterPath="$PROJECT_DIR$/app/handlers/sendOutbidInfo.php" />
     </list>
     <ignored path="$PROJECT_DIR$/app/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/app/vendor/phpmailer/phpmailer/" />
@@ -108,25 +108,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bid" pinned="false" current-in-tab="false">
-        <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.bid">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myaccount.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/myaccount.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="buyerfeedback.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/handlers/buyerfeedback.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -173,11 +154,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buyerSingleItem.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="buyerSingleItem.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/buyerSingleItem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="148" column="32" lean-forward="true" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
+            <state relative-caret-position="2310">
+              <caret line="154" column="30" lean-forward="true" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
               <folding>
                 <marker date="1521028476000" expanded="true" signature="1507:1578" ph="SELECT * FRO... Auction" />
                 <marker date="1521028476000" expanded="true" signature="1614:1716" ph="SELECT * FRO... Bid" />
@@ -202,6 +183,31 @@
                 <marker date="1521028476000" expanded="true" signature="8232:8328" ph="SELECT AVG(r... results" />
                 <marker date="1521028476000" expanded="true" signature="9026:9480" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendOutbidInfo.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/handlers/sendOutbidInfo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+              <folding>
+                <marker date="1521029189000" expanded="true" signature="356:395" ph="SELECT * FRO... User" />
+                <marker date="1521029189000" expanded="true" signature="1441:1497" ph="SELECT aucti... watchlist" />
+                <marker date="1521029189000" expanded="true" signature="1650:1781" ph="SELECT bid.b... bid" />
+                <marker date="1521029189000" expanded="true" signature="1650:1801" ph="SELECT bid.b... bid" />
+                <marker date="1521029189000" expanded="true" signature="2478:2506" ph="SELECT DISTI... User" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="watchlist" pinned="false" current-in-tab="false">
+        <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.watchlist">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -247,6 +253,7 @@
       <find>10</find>
       <find>save</find>
       <find>hr</find>
+      <find>make bid</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -259,11 +266,11 @@
         <option value="$PROJECT_DIR$/app/views/myProductsForSale.php" />
         <option value="$PROJECT_DIR$/app/handlers/addNewAuction.php" />
         <option value="$PROJECT_DIR$/app/views/sellingActivity.php" />
-        <option value="$PROJECT_DIR$/app/handlers/sendOutbidInfo.php" />
         <option value="$PROJECT_DIR$/app/handlers/buyerfeedback.php" />
         <option value="$PROJECT_DIR$/app/views/buyerHome.php" />
         <option value="$PROJECT_DIR$/app/views/myOrders.php" />
         <option value="$PROJECT_DIR$/app/views/buyerSingleItem.php" />
+        <option value="$PROJECT_DIR$/app/handlers/sendOutbidInfo.php" />
       </list>
     </option>
   </component>
@@ -374,7 +381,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7240000" />
+    <option name="totallyTimeSpent" value="8096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="23" width="1422" height="815" extended-state="0" />
@@ -752,20 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/handlers/sendOutbidInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding>
-            <marker date="1520964237000" expanded="true" signature="346:385" ph="SELECT * FRO... User" />
-            <marker date="1520964237000" expanded="true" signature="1565:1621" ph="SELECT aucti... watchlist" />
-            <marker date="1520964237000" expanded="true" signature="1774:1887" ph="SELECT bid.b... bid" />
-            <marker date="1520964237000" expanded="true" signature="1774:1907" ph="SELECT bid.b... bid" />
-            <marker date="1520964237000" expanded="true" signature="2560:2588" ph="SELECT DISTI... User" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/handlers/makeBid.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -912,13 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.results">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -928,8 +914,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/buyerSingleItem.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="148" column="32" lean-forward="true" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
+        <state relative-caret-position="2310">
+          <caret line="154" column="30" lean-forward="true" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
           <folding>
             <marker date="1521028476000" expanded="true" signature="1507:1578" ph="SELECT * FRO... Auction" />
             <marker date="1521028476000" expanded="true" signature="1614:1716" ph="SELECT * FRO... Bid" />
@@ -953,6 +939,34 @@
             <marker date="1521028476000" expanded="true" signature="6771:7098" ph="..." />
             <marker date="1521028476000" expanded="true" signature="8232:8328" ph="SELECT AVG(r... results" />
             <marker date="1521028476000" expanded="true" signature="9026:9480" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.watchlist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bba1a273/2545a2ca-1459-4eb5-a5e2-6e3d653e7642/auctiondb.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/handlers/sendOutbidInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <marker date="1521029189000" expanded="true" signature="356:395" ph="SELECT * FRO... User" />
+            <marker date="1521029189000" expanded="true" signature="1441:1497" ph="SELECT aucti... watchlist" />
+            <marker date="1521029189000" expanded="true" signature="1650:1781" ph="SELECT bid.b... bid" />
+            <marker date="1521029189000" expanded="true" signature="1650:1801" ph="SELECT bid.b... bid" />
+            <marker date="1521029189000" expanded="true" signature="2478:2506" ph="SELECT DISTI... User" />
           </folding>
         </state>
       </provider>
