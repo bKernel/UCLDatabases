@@ -43,12 +43,12 @@
                 </div>
 
                 <br>
-                <form action= "../handlers/handlesellerFeedback.php">
+
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="username" class="cols-sm-2 control-label">Your rating</label>
                     </div>
-
+                    <form method='post' action= "../handlers/handlesellerFeedback.php">
                     <input type="radio" id="ratingradio" name="ratingradio" value="1">   1
                     <br>
                     <input type="radio" id="ratingradio" name="ratingradio" value="2" >  2
@@ -77,7 +77,7 @@
                     <br>
                     <div>
 
-                            <button>Send rating</button>
+                            <button type='submit'>Send rating</button>
                         </form>                    </div>
 
                     <div>
