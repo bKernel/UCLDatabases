@@ -35,8 +35,8 @@ function checkuser($userid){
   $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
   $query = "SELECT auctionId FROM watchlist WHERE userId = '$userid';";
   $result = mysqli_query($connection, $query) or die('Error making Database query');
-  while($row=mysql_fetch_row($result)){
-    $bidder_query = "SELECT bid.bidderid FROM bid, auction,watchlist WHERE bid.bidamount = auction.currentPrice AND auction.itemid = $row['auctionId']; ";
+  while($row=mysqli_fetch_array($result)){
+    $bidder_query = "SELECT bid.bidderid FROM bid, auction,watchlist WHERE bid.bidamount = auction.currentPrice AND auction.itemid = '{$row['auctionId']}'; ";
     $bidder_results = mysqli_query($connection,$bidder_query)or die('Error making Database query');
     $bidder_row = mysqli_fetch_array($bidder_results);
     $currentwinner = $bidder_row[0];
@@ -60,4 +60,5 @@ do{
   }
 sleep($interval);
 }while(true);
+
 ?>

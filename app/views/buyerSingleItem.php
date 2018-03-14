@@ -126,6 +126,11 @@
                                     <input type='hidden' name='auctionid' value='{$row['itemid']}'>
                                     <button class='btn btn-default add-to-cart'>Make Bid</button>
                                 </form>
+                                <form class=\"form-inline\" action='../handlers/watchlist.php' method='post'>
+                                <input type='hidden' name='userid' value='{$_SESSION['id']}'>
+                                <input type='hidden' name='itemid' value='{$row['itemid']}'>
+                                <button class='btn btn-default add-to-cart'>Watch this item</button>
+                               </form>
                             "; ?>
                             </div>
 

@@ -254,43 +254,59 @@
 
 
 
+
             for($x = 0; $x< sizeof($totalBidders); $x++) {
 
                 $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
-                $query3 = "SELECT * FROM Auction WHERE itemid = {$totalBidders[$x]['AuctionID']};";
-                $result3 = mysqli_query($connection, $query) or die('Error making Database query');
-                $row = mysqli_fetch_array($result3);
-                $endDate = $row['endDate'];
-                $nowDate = date("Y-m-d");
-                $diff = floor((strtotime($endDate) - strtotime($nowDate))/(60*60*24));
+                $query3 = "SELECT * FROM Auction WHERE itemid = '{$totalBidders[$x]['AuctionID']}';";
+                $result3 = mysqli_query($connection, $query3) or die('Error making Database query');
+                $row3 = mysqli_fetch_array($result3);
+                $endDate3 = $row3['endDate'];
+                $nowDate3 = date("Y-m-d");
+                $diff3 = floor((strtotime($endDate3) - strtotime($nowDate3))/(60*60*24));
+                if($diff3<0){
+                    $diff3 = "Auction Ended";
+                }
+                if(strlen($row3['itemDescription']) >20) {
+                    $description3 = substr($row3['itemDescription'], 0, 20) . "...";
+                }
+                else{
+                    $description3 = substr($row3['itemDescription'], 0, 20);
+                }
                 echo "
-                    <div class=\"col-lg-6 col-md-6 mb-6\">
-                        <div class=\"card\">
+                  <div class=\"col-lg-12 col-md-12 mb-6\">
+                        <div class=\"box\">
                             <div class='row'>
-                                <div class='imageBox col-md-6'>                 
-                                   <img class=\"card-img-top\" style=\"max-height:100%\" src=\"/UCLDatabases/app/resources/{$row['id']}/{$row['itemName']}/image1.png\" alt=\"\"></a>
+                                <div class='imageBox col-md-6'>                
+                                   <img class=\"card-img-top\" style=\"max-height:100%\" src=\"/UCLDatabases/app/resources/{$row3['id']}/{$row3['itemName']}/image1.png\" alt=\"\"></a>
                                 </div>
                                 
                                 <div class='col-md-6'>
                                     <div class=\"card-body\">
                                         <h4 class=\"card-title\">
                                             <form action='../handlers/selectItemBuyer.php' method='post'>
-                                                <input type='hidden' name='item' value='{$row['itemid']}'>
-                                                <button class='btn btn-link' style='font-size: 24px;'>{$row['itemName']}</button>
+                                                <input type='hidden' name='item' value='{$row3['itemid']}'>
+                                                <button class='btn btn-link' style='font-size: 24px;'>{$row3['itemName']}</button>
                                             </form> 
                                           
                                         </h4>
-                                        <h5>£{$row['currentPrice']}</h5>
+                                        <h5>£{$row3['currentPrice']}</h5>
                                         
-                                        <p>Days Remaining: $diff </p>
-                                        <p >End Time: {$row['endTime']}</p>
-                                        <p> Category: {$row['itemCategory']}</p>
-                                        <p> Description: $description</p>
+                                        <p>Days Remaining: $diff3 </p>
+                                        <p >End Time: {$row3['endTime']}</p>
+                                        <p> Category: {$row3['itemCategory']}</p>
+                                        <p> Description: $description3</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>";
+                    </div>
+                    
+                  
+                    
+                    
+                    
+                    ";
             }
 
 
