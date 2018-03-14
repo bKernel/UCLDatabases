@@ -46,19 +46,20 @@ $ratingrow = mysqli_fetch_array($ratingresult);
                     echo "<h4>Category: {$_SESSION['itemCategory']}</h4>";
                     echo "<h4>Condition: {$_SESSION['itemCondition']}</h4>";
                     echo "<h4>Current Bid: <span>£{$_SESSION['currentPrice']}</span></h4>";
-                    if ('{$row[0]}' == "" AND '{$ratingrow[0]}' == "") {
+                    if ($row[0] !== "" AND $ratingrow[0] !== "") {
                     echo "<h4>(bid made by <span>{$row[0]}</span>, average rating:  <span>{$ratingrow[0]}</span></h4>";}
                     echo "<h4>Reserve Price: <span>£{$_SESSION['reservePrice']}</span></h4>";
                     echo "<h4>End Time: <span>{$_SESSION['endTime']}</span></h4>";
                     echo "<h4>End Date: <span>{$endDate}</span></h4>";
+                    $_SESSION['rateThisBuyer'] = $row[0];
                     ?>
 
                     <form action="editSellerItem.php">
                         <button>Edit</button>
                     </form>
 
-                    <?php if ('{$row[0]}' == "" AND '{$ratingrow[0]}' == "") {
-                        "<form action='sellerFeedback.php'>
+                    <?php if ($row[0] !== "" AND $ratingrow[0] !== "") {
+                        echo "<form action='sellerFeedback.php'>
                         <button>Rate buyer</button>
                     </form>";
                     } ?>

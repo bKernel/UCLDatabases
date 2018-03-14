@@ -38,11 +38,12 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <label type="text" id="username" ><?php echo $_SESSION['firstName'] . " " . $_SESSION['surname']?></label>
+                        <label type="text" id="username" ><?php echo $_SESSION['rateThisBuyer']?></label>
                     </div>
                 </div>
 
                 <br>
+                <form action= "../handlers/handlesellerFeedback.php">
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="username" class="cols-sm-2 control-label">Your rating</label>
@@ -75,7 +76,7 @@
 
                     <br>
                     <div>
-                        <form action= "../handlers/handlesellerFeedback.php">
+
                             <button>Send rating</button>
                         </form>                    </div>
 

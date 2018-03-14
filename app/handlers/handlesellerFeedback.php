@@ -1,5 +1,3 @@
-
-
 <?php
 
                     $checked = $_POST['ratingradio'];
@@ -12,6 +10,6 @@
                     $updatefeedback = "UPDATE results SET feedbackfromseller = '$feedback' WHERE sellerid = '{$_SESSION['id']}' AND auctionid = '{$_SESSION['itemid']}'";
                     $updatefeedbackresult= mysqli_query($connection, $updatefeedback) or die('Error making Database update');
 
-                    ;?>
+;?>
 
 <script> window.location.replace("../views/sellerSingleItem.php") </script>
