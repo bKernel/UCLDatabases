@@ -27,15 +27,19 @@ include '../includes/navbar.php';
             <div class="col-xs-12">
                 <h3 style="float: left">Manage Auctions</h3>
             </div>
-
+            <form class=\"form-inline\" action='../handlers/sendOutbidInfo.php' method='post'>
+                <button style="float:right" class='btn btn-default add-to-cart', type="submit">Email Watchlist</button>
+            </form>
             <div class="container col-xs-12" style="padding: 0">
 
                 <?php
                 $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
                 $query = "SELECT * FROM auction";
                 $result = mysqli_query($connection, $query) or die('Error making Database query');
+
                 echo "<div id=\"listings\" class=\"row\">";
                 while($row = mysqli_fetch_array($result)){
+                    $description = substr($row['itemDescription'], 0, 60);
                     echo "
                     <div class=\"col-lg-6 col-md-6 mb-6\">
                         <div class=\"card\">
@@ -51,7 +55,7 @@ include '../includes/navbar.php';
                                         </h4>
                                         <h5>£{$row['currentPrice']}</h5>
                                         <h6>{$row['itemCategory']}</h6>
-                                        <p class=\"card-text\">{$row['itemDescription']}</p>
+                                        <p class=\"card-text\">$description</p>
                                         <form action='../handlers/selectItem.php' method='post'>
                                             <input type='hidden' name='imagesrc' value='../resources/{$row['id']}/{$row['itemName']}/image1.png'>                                        
                                             <input type='hidden' name='imagesrc2' value='../resources/{$row['id']}/{$row['itemName']}/image2.png'>

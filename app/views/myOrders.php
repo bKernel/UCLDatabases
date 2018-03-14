@@ -53,7 +53,7 @@
                 $result2 = mysqli_query($connection, $query2) or die('Error making Database query');
                 $i=1;
                 while($row=mysqli_fetch_array($result2)){
-                    echo '<p>item'.$i.': '.$row['itemName'].'<br> ItemId: '.$row['auctionid'].'</p>';
+                    echo '<p>Item '.$i.': '.$row['itemName'].'<br> </p>';
                     $i++;
                 }
                 ?>
@@ -87,7 +87,7 @@
                         $query = "SELECT results.buyerid, results.winningbid, results.auctionid, auction.itemName FROM results,auction WHERE auction.itemid= results.auctionid AND results.buyerid = '{$_SESSION['id']}'";
                         $result = mysqli_query($connection, $query) or die('Error making Database query');
                         while($row=mysqli_fetch_array($result)){
-                            echo '<option>'.$row['itemName'].'. id:'.$row['auctionid'].'</option>';
+                            echo '<option>'.$row['itemName'].'. </option>';
                         }
                         ?>
                     </select>
@@ -112,7 +112,7 @@
                 $i=1;
 
                 while($row=mysqli_fetch_array($result)){
-                    echo '<p>item'.$i.': '.$row['itemName'].'<br> ItemId: '.$row['auctionid'].'<br> feedback: '.$row['feedbackfrombuyer'].'<br> rating: '.$row['ratingfrombuyer'].'</p>';
+                    echo '<p>Item '.$i.': '.$row['itemName'].'<br> Feedback: '.$row['feedbackfrombuyer'].'<br> Rating: '.$row['ratingfrombuyer'].'</p>';
                     $i++;
                 }
                 echo"<br>

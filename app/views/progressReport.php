@@ -67,7 +67,7 @@ else {
 
         $m->isSMTP();
         $m->SMTPAuth= true;
-        $m->SMTPDebug = 2;
+        $m->SMTPDebug = 0;
 
         $m->Host = 'smtp.gmail.com';
         $m->Username = 'NoreplyDBProject@gmail.com';

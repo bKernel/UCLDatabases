@@ -14,7 +14,7 @@ function sendWatchlist($userid, $auction)
     $name = $row['firstName'] . " " . $row['surname'];
     $mail = new PHPMailer;
     $mail->isSMTP();
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
@@ -51,14 +51,14 @@ date_default_timezone_set('UK');
 ignore_user_abort();//run backend
 set_time_limit(0);//cancel the limit of the script runtime
 $interval = 60*60*24;//run every period of time
-do{
+
   $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
   $query = "SELECT DISTINCT id FROM User;";
   $result = mysqli_query($connection, $query) or die('Error making Database query');
   while($row=mysqli_fetch_array($result)){
   checkuser($row['id']);
   }
-sleep($interval);
-}while(true);
+
+header('Location:../views/manageAuctions.php');
 
 ?>
