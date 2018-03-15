@@ -18,7 +18,7 @@ $errors = [];
 //if(isset($_POST['email'])) {
 
 $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
-$query = "SELECT COUNT(auctionid) FROM bid WHERE auctionid = {$_SESSION['itemid']}";
+$query = "SELECT COUNT(auctionid) as totalbids FROM bid WHERE auctionid = '{$_SESSION['itemid']}'";
 $result = mysqli_query($connection, $query) or die('Error making Database query');
 $row = mysqli_fetch_array($result);
 

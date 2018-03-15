@@ -46,7 +46,7 @@
 
                     $minPrice = $row['currentPrice'] + 1;
 
-                    $update = "UPDATE auction SET traffic = ".$traffic." + 1 WHERE itemid = '{$_SESSION['selectedItemBuyer']}'";
+                    $update = "UPDATE auction SET traffic = traffic + 1 WHERE itemid = '{$_SESSION['selectedItemBuyer']}'";
                     $updateresult= mysqli_query($connection, $update) or die('Error making Database update');
 
 
