@@ -255,7 +255,7 @@
 
 
 
-            for($x = 0; $x< sizeof($totalBidders); $x++) {
+            for($x = 0; $x< 3; $x++) {
 
                 $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server.');
                 $query3 = "SELECT * FROM Auction WHERE itemid = '{$totalBidders[$x]['AuctionID']}';";
