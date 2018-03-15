@@ -87,7 +87,7 @@
                         $query = "SELECT results.buyerid, results.winningbid, results.auctionid, auction.itemName FROM results,auction WHERE auction.itemid= results.auctionid AND results.buyerid = '{$_SESSION['id']}'";
                         $result = mysqli_query($connection, $query) or die('Error making Database query');
                         while($row=mysqli_fetch_array($result)){
-                            echo '<option>'.$row['itemName'].'. </option>';
+                            echo "<option value='{$row['auctionid']}'>{$row['itemName']} </option>";
                         }
                         ?>
                     </select>

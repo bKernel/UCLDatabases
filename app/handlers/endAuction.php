@@ -31,7 +31,7 @@ function getAuctionDetails()
     $details['auctionid'] = $_POST['auctionid'];
     $details['sellerid'] = $_POST['sellerid'];
     $connection = mysqli_connect('auctionmanagement34.mysql.database.azure.com','auction34@auctionmanagement34','JackSparrow34','auctiondb') or die('Error connecting to MySQL server Price.');
-    $query = "SELECT * FROM Bid WHERE auctionid = '{$_SESSION['closedauction']}' ORDER BY bidamount LIMIT 1;";
+    $query = "SELECT * FROM Bid WHERE auctionid = '{$_SESSION['closedauction']}' ORDER BY bidamount DESC LIMIT 1;";
     $result = mysqli_query($connection, $query) or die('Error making Database query');
     $row = mysqli_fetch_array($result);
     $details['buyerid'] = $row['bidderid'];
